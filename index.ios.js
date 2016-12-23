@@ -3,23 +3,21 @@ import { AppRegistry, StyleSheet, Text, View, Image, ScrollView } from 'react-na
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 
 import styles from './Pages/Styles';
-import Navigation from './Pages/Navigation';
 import StatusBarBackground from './Pages/StatusBarBackground';
 
-import HomePage from './Pages/HomePage';
-import BusSchedule from './Pages/BusSchedule';
+import HeaderPage from './Pages/HeaderPage';
+import Navigation from './Pages/Navigation';
 
 
 export default class BridgesApp extends Component {
   render() {
     return (
-      <ScrollView >
+      <View>
         <StatusBarBackground />
+        <HeaderPage />
         <Navigation />
-        <View>
-          <HomePage />
-        </View>
-      </ScrollView>
+      </View>
+
     );
   }
 }
