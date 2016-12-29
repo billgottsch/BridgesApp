@@ -5,7 +5,6 @@ import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-ta
 import styles from './Pages/Styles';
 import StatusBarBackground from './Pages/StatusBarBackground';
 
-import HeaderPage from './Pages/HeaderPage';
 import Navigation from './Pages/Navigation';
 
 
@@ -14,8 +13,9 @@ export default class BridgesApp extends Component {
     return (
       <View>
         <StatusBarBackground />
-        <HeaderPage />
-        <Navigation />
+        <View>
+          <Navigation />
+        </View>
       </View>
 
     );

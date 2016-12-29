@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, ScrollView, ListView } from 'react-native';
+import { AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import StatusBarBackground from './StatusBarBackground';
 import styles from './Styles';
 import exitMap from './ExitDoorMap.jpg';
+import SearchBar from './SearchBar';
 
 export default class BusSchedule extends Component {
   constructor(props) {
     super(props)
     this.state ={
+      newItemValue: '',
       schools:[
         {name:'Aitkin', arrival:'9:15am', departure:'12pm', door:'South'},
         {name:'Bertha-Hewitt', arrival:'9:15am', departure:'12:30pm', door:'South'},
@@ -34,16 +36,40 @@ export default class BusSchedule extends Component {
     }
   }
 
+  onSchoolSearch(text){
+    this.setState({
+      schools: text.value,
+    })
+  }
+  onSearchSubmit(e) {
+    e.preventDefault();
+    var newSchool = this.state.schools.name.map();
+        this.setState({
+          schools: newSchool,
+          newItemValue: ''
+        })
+    }
+
   render() {
     return(
-        <ScrollView>
+        <ScrollView style={{backgroundColor:'#88B467'}}>
+          <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
+            <TextInput
+              onChangeText={this.onSchoolSearch.bind(this)}
+              keyboardType='default'
+              style={styles.inputSearch}
+              value={this.state.newItemValue}
+              placeholderTextColor='#88B467'
+              placeholder="Search for school..."
+              onSubmitEditing={this.onSearchSubmit.bind(this)} />
+          </View>
           <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
             <Text style={styles.schoolListTitle}>School  -  Arrival  -  Departure  -  Exit Door</Text>
             {this.state.schools.map((school, index) =>{
               return (<View key={index}><Text style={styles.schoolList} key={index}>{school.name}  -  {school.arrival}  -  {school.departure}  -  {school.door}</Text></View>)
             })}
           </View>
-            <View>
+            <View style={{ marginBottom:130,}}>
               <Image source={exitMap} style={styles.exitMap}></Image>
             </View>
         </ScrollView>

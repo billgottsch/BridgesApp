@@ -3,6 +3,7 @@ import { AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    height:100,
     backgroundColor:'#88B467',
     borderColor:'#88B467',
     borderStyle: "solid",
@@ -35,6 +36,15 @@ const styles = StyleSheet.create({
     margin:0,
     alignItems: 'center',
   },
+  inputSearch: {
+    backgroundColor:'#fff',
+    height: 40,
+    textAlign:'center',
+    width:200,
+    marginTop:40,
+    borderWidth:1,
+    borderColor:'#fff',
+  },
 
   homepageTitle: {
     fontSize:26,
@@ -57,10 +67,8 @@ const styles = StyleSheet.create({
 
   homepageSubTitle: {
     fontSize:20,
-    marginBottom: 10,
     padding: 0,
     width:260,
-    textAlign:'center',
     textAlign:'center',
     textShadowColor: '#839477',
     textShadowRadius:.5,
@@ -68,8 +76,8 @@ const styles = StyleSheet.create({
       width: .5,
       height: .5,
     },
-
   },
+
   homepageText: {
     fontSize: 12,
     marginTop:15,
@@ -87,23 +95,65 @@ const styles = StyleSheet.create({
     },
     backgroundColor:'#6DCCEF',
   },
+
+  homepageTextTwo: {
+    fontSize: 12,
+    marginTop:15,
+    textAlign:'center',
+    padding:5,
+    width: 250,
+    borderColor:'#43781c',
+    borderWidth:1,
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    backgroundColor:'#F79835',
+  },
+
+  homepageTextThree: {
+    fontSize: 12,
+    marginTop:15,
+    textAlign:'center',
+    padding:5,
+    width: 250,
+    borderColor:'#43781c',
+    borderWidth:1,
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    backgroundColor:'#F2EB39',
+  },
+
+
   homepageTextTitle: {
     fontSize: 14,
     fontWeight: 'bold',
   },
+
   homepageTextData: {
     padding: 10,
   },
+
   statusbarbackground:{
     backgroundColor: "white",
     height: 20,
     margin: 0,
     padding:0,
   },
+
   fullMap: {
     height: 200,
     width: 374,
   },
+
   schoolList: {
     fontSize: 12,
     marginTop:5,
@@ -123,6 +173,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#BAD0AB',
     padding: 10,
   },
+
   schoolListTitle: {
     fontSize: 16,
     marginTop:20,
@@ -133,31 +184,66 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     // justifyContent:'space-around',
   },
+
   exitMap: {
     width:374,
     height: 280,
   },
+
   navContent:{
     flexDirection:'row',
     alignItems:'stretch',
     backgroundColor:'white',
-    margin:0,
     padding:5,
-    borderWidth:1,
-    bottom: 0,
+    marginTop:40,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-  navIconsOne: {
-    color:'#223D0E',
+
+  navIcons: {
+    color:'#43781c',
+    borderBottomWidth:2,
+    borderBottomColor:'red',
   },
   navIconsTwo: {
-    color:'#223D0E',
+    color:'red',
+    borderBottomWidth:2,
+    borderBottomColor:'red',
   },
-  navIconsThree: {
-    color:'#223D0E',
+
+  businessesList: {
+    fontSize: 12,
+    marginTop:5,
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'space-around',
+    textAlign:'center',
+    borderColor:'#43781c',
+    borderWidth:1,
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    backgroundColor:'#BAD0AB',
+    padding: 10,
   },
-  navIconsFour: {
-    color:'#223D0E',
+  businessListTitle: {
+    fontSize: 14,
+    marginTop:5,
+    padding: 10,
+    fontWeight: 'bold',
+    backgroundColor:'#BAD0AB',
+    flex:1,
+    textAlign: 'center',
+    borderWidth: 1,
+    // justifyContent:'space-around',
   },
+
 
 });
 
