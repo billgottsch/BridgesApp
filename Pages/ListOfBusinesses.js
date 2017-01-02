@@ -177,25 +177,161 @@ export default class ListOfBusinesses extends Component {
   //       return '#F2EB39';
   //     }
   // };
+
+
+
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467'}}>
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40}}>Did you find a business you liked? Check out more info here!</Text>
-        <View style={{flex:1, margin:10, marginTop:10 ,justifyContent:'center'}}>
-          {this.state.businesses.map((business, index) =>{
-            return (
-              <View key={index}><Text
-                style={{
-                  backgroundColor:business.color,
-                  fontSize: 14,
+        <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
+          {/* {this.state.businesses.map((business, index) =>{
+            return ( */}
+              <View>
+                <Text style={{
+                  backgroundColor:'#CB3795',
+                  marginLeft:20,
+                  marginRight:20,
                   marginTop:5,
-                  fontWeight: 'bold',
-                  flex:1,
-                  justifyContent:'center',
-                  textAlign: 'center',
-                  borderWidth: 1,
-                }}>{business.name}<FAIcon style={{color:'white', textAlign:'center',alignItems:'center'}} type='icon' name='star-o' size={20}/></Text></View>)
-          })}
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:18,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Computer and IT
+                </Text>
+                <Text style={{backgroundColor:'#EA2430',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:18,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Health Services
+                </Text>
+                <Text style={{backgroundColor:'#F2EB39',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:18,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Business, Finance and Hospitality
+                </Text>
+                <Text style={{
+                  backgroundColor:'#F79835',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:18,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Engineering, Const., Manuf., Automotive/Heavy Equipment
+                </Text>
+                <Text style={{
+                  backgroundColor:'#57B74F',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:18,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Ag. Food and Natural Resources
+                </Text>
+                <Text style={{
+                  backgroundColor:'#6DCCEF',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:20,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Public Safety
+                </Text>
+                <Text style={{
+                  backgroundColor:'#231F20',
+                  color:'white',
+                  marginLeft:20,
+                  marginRight:20,
+                  marginTop:10,
+                  padding: 20,
+                  textAlign:'center',
+                  fontSize:20,
+                  borderColor:'#43781c',
+                  borderWidth:1,
+                  shadowColor: '#43781c',
+                  shadowRadius:1,
+                  shadowOpacity:1,
+                  shadowOffset: {
+                    width: 1,
+                    height: 1,
+                  },}}>
+                  Liberal Arts
+                </Text>
+                {/* <Text
+                  style={{
+                    backgroundColor:business.color,
+                    fontSize: 14,
+                    marginTop:5,
+                    padding:5,
+                    fontWeight: 'bold',
+                    textAlign:'center',
+                    flex:1,
+                    borderWidth: 1,
+                }}>{business.name}</Text> */}
+              </View>
         </View>
           <View style={{ marginBottom:130,}}>
           </View>

@@ -14,6 +14,7 @@ import AddCode from './AddCode';
 import CareerInfo from './CareerInfo';
 import BusinessesPage from './BusinessesPage';
 import OneBusiness from './OneBusiness';
+import ProfilePage from './ProfilePage';
 
 
 import Tabs from 'react-native-tabs';
@@ -23,7 +24,7 @@ export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'HomePage',
+      page:'ProfilePage',
     };
   }
   renderPage() {
@@ -44,7 +45,7 @@ export default class Navigation extends Component {
         return <View><AddCode /></View>;
 
       default:
-        return <View><HomePage /></View>;
+        return <View><ProfilePage /></View>;
       }
     };
 

@@ -18,18 +18,21 @@ export default class HomePage extends Component {
               Career Exploration Day 2017
             </Text>
             <Text style={styles.homepageSubTitle}>
+              Check out the 'gift' tab for more information on the Giveaways!{"\n"}
+            </Text>
+            <Text style={styles.homepageSubTitle}>
               Don't miss this year's demonstrations!
             </Text>
-            <View style={{flexDirection:'row'}}>
-              <Text style={styles.homepageText}>
-                <Text style={styles.homepageTextTitle}>LADID {"\n"} 11:00am - Room 113 {"\n"}</Text>
-                <Text style={styles.homepageTextData}>Come see the Lakes Area Drug Investigation Division (LADID) demonstrate a training excercise with their drug-sniffing dog Thor!</Text>
-              </Text>
-            </View>
             <View style={{flexDirection:'row'}}>
               <Text style={styles.homepageTextTwo}>
                 <Text style={styles.homepageTextTitle}>Clow Stamping {"\n"} 10:30am - Room 201 {"\n"}</Text>
                 <Text style={styles.homepageTextData}>Come see what the process is to 3D print a fork and make your own!</Text>
+              </Text>
+            </View>
+            <View style={{flexDirection:'row'}}>
+              <Text style={styles.homepageText}>
+                <Text style={styles.homepageTextTitle}>LADID {"\n"} 11:00am - Room 113 {"\n"}</Text>
+                <Text style={styles.homepageTextData}>Come see the Lakes Area Drug Investigation Division (LADID) demonstrate a training excercise with their drug-sniffing dog Thor!</Text>
               </Text>
             </View>
             <View style={{flexDirection:'row', marginBottom:20}}>

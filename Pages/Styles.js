@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     height: 40,
     textAlign:'center',
     width:200,
-    marginTop:40,
+    marginTop:50,
     borderWidth:1,
     borderColor:'#fff',
   },
@@ -243,6 +243,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     // justifyContent:'space-around',
   },
+  profileInput: {
+    backgroundColor:'#fff',
+    height: 40,
+    textAlign:'center',
+    width:300,
+    marginTop:5,
+    borderWidth:1,
+    borderColor:'#fff',
+    fontSize:14,
+  }
 
 
 });

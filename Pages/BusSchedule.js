@@ -36,32 +36,31 @@ export default class BusSchedule extends Component {
     }
   }
 
-  onSchoolSearch(text){
-    this.setState({
-      schools: text.value,
-    })
-  }
-  onSearchSubmit(e) {
-    e.preventDefault();
-    var newSchool = this.state.schools.name.map();
-        this.setState({
-          schools: newSchool,
-          newItemValue: ''
-        })
-    }
+  // onSchoolSearch(text){
+  //   this.setState({
+  //     schools: text.value,
+  //   })
+  // }
+  // onSearchSubmit(e) {
+  //   e.preventDefault();
+  //   var newSchool = this.state.schools.name.reduce();
+  //       this.setState({
+  //         schools: newSchool,
+  //         newItemValue: ''
+  //       })
+  //   }
 
   render() {
     return(
         <ScrollView style={{backgroundColor:'#88B467'}}>
           <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
             <TextInput
-              onChangeText={this.onSchoolSearch.bind(this)}
+              onChangeText={this.state.schools.filter((name) => {})}
               keyboardType='default'
               style={styles.inputSearch}
               value={this.state.newItemValue}
               placeholderTextColor='#88B467'
-              placeholder="Search for school..."
-              onSubmitEditing={this.onSearchSubmit.bind(this)} />
+              placeholder="Search for school..." />
           </View>
           <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
             <Text style={styles.schoolListTitle}>School  -  Arrival  -  Departure  -  Exit Door</Text>
