@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, Image, Text, View, StyleSheet, ScrollView } from 'react-native';
-import { TabViewAnimated, TabBarTop } from 'react-native-tab-view';
+import { Router, Scene } from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
@@ -11,10 +11,13 @@ import bridgesWords from './BridgesWORDSonly2c.jpg';
 import HomePage from './HomePage';
 import BusSchedule from './BusSchedule';
 import AddCode from './AddCode';
-import CareerInfo from './CareerInfo';
+import ListofCareers from './ListofCareers';
 import BusinessesPage from './BusinessesPage';
 import OneBusiness from './OneBusiness';
 import ProfilePage from './ProfilePage';
+import CareersPage from './CareersPage';
+import ListOfBusinesses from './ListOfBusinesses';
+
 
 
 import Tabs from 'react-native-tabs';
@@ -24,7 +27,7 @@ export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'ProfilePage',
+      page:'ListOfBusinesses',
     };
   }
   renderPage() {
@@ -35,8 +38,8 @@ export default class Navigation extends Component {
       case 'BusinessesPage':
         return <View><BusinessesPage /></View>;
 
-      case 'CareerInfo':
-        return <View><CareerInfo /></View>;
+      case 'CareersPage':
+        return <View><CareersPage /></View>;
 
       case 'BusSchedule':
         return <View><BusSchedule /></View>;
@@ -44,8 +47,15 @@ export default class Navigation extends Component {
       case 'AddCode':
         return <View><AddCode /></View>;
 
+      case 'ListofCareers':
+        return <View><ListofCareers /></View>;
+
+      case 'ListOfBusinesses':
+        return <View><ListOfBusinesses /></View>;
+
+
       default:
-        return <View><ProfilePage /></View>;
+        return <View><ListOfBusinesses /></View>;
       }
     };
 
@@ -58,8 +68,8 @@ export default class Navigation extends Component {
       <View>
         <View style={{borderBottomColor:'#88B467'}}>
           <View style={{flexDirection:'row', justifyContent:'flex-start',borderBottomWidth:1, borderBottomColor:'#88B467'}}>
-            <Image source={bridgesApple} style={{height:60, width:120, }}></Image>
-            <Image source={bridgesWords} style={{height:40, width:120, padding: 0, marginTop:20, marginLeft:5}}></Image>
+            <Image source={bridgesApple} style={{height:70, width:140, }}></Image>
+            <Image source={bridgesWords} style={{height:50, width:165, padding: 0, marginTop:20, marginLeft:5}}></Image>
           </View>
         </View>
         <View style={styles.navContent}>
@@ -67,7 +77,7 @@ export default class Navigation extends Component {
                 onSelect={this.onTabSelect.bind(this)}>
               <Text name="HomePage"><FAIcon key='first' style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='calendar' size={20}/></Text>
               <Text name="BusinessesPage"><Icon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='ios-briefcase' size={20}/></Text>
-              <Text name="CareerInfo"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='map' size={20}/></Text>
+              <Text name="CareersPage"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='map' size={20}/></Text>
               <Text name="BusSchedule"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='bus' size={20}/></Text>
               <Text name="AddCode"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='gift' size={20}/></Text>
           </Tabs>

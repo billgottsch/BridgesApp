@@ -3,6 +3,8 @@ import { AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, List
 import Button from 'react-native-button';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
+import { Router, Scene } from 'react-native-router-flux';
+
 
 export default class AddCode extends Component {
 
@@ -13,16 +15,16 @@ export default class AddCode extends Component {
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467', height: 600}}>
-        <View style={{flex:1, flexDirection:'row', justifyContent:'center', marginTop:5}}>
-          <Button
+        {/* <View style={{flex:1, flexDirection:'row', justifyContent:'center', marginTop:5}}> */}
+          {/* <Button
             containerStyle={{backgroundColor:'#43781C', padding:10, width:80}}
             style={{fontSize: 14, color: 'white'}}
             styleDisabled={{color: 'red'}}
             onPress={() => this.showCodeInfo()}>
             Fill me out first!
-          </Button>
-        </View>
-        <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
+          </Button> */}
+        {/* </View> */}
+        <View style={{flex:1,alignItems:'center', padding:10, justifyContent:'center', flexDirection:'row'}}>
           <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:320}}>To be eligible for the giveaways you must talk with at least 6 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be registered!</Text>
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>

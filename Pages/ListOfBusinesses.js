@@ -4,6 +4,7 @@ import StatusBarBackground from './StatusBarBackground';
 import styles from './Styles';
 import exitMap from './ExitDoorMap.jpg';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
+import { Router, Scene, Actions } from 'react-native-router-flux';
 
 
 export default class ListOfBusinesses extends Component {
@@ -155,183 +156,29 @@ export default class ListOfBusinesses extends Component {
         {name:'Dream It. Do It.', address:'1500 Birchmont Drive NE', city:'Bemidji', state:'MN', zip:'56601', phone:'(800) 627-3529', color:'#F79835'},
         {name:'Graphic Packaging Intl', address:'975 3rd St SW', city:'Crosby', state:'MN', zip:'56441', phone:'(218) 546-2100', color:'#F79835'},
         {name:'LINDAR Corp', address:'7789 Hastings Rd', city:'Baxter', state:'MN', zip:'56425', phone:'(218) 546-2100', color:'#F79835'},
-
       ]
     }
   }
-  //   .setBackgroundColor() {
-  //
-  //     if (this.state.business.color === 'purple') {
-  //       return '#CB3795';
-  //     } else if (this.state.business.color === 'red') {
-  //       return '#EA2430';
-  //     } else if (this.state.business.color === 'black') {
-  //       return '#231F20';
-  //     } else if (this.state.business.color === 'orange') {
-  //       return '#F79835';
-  //     } else if (this.state.business.color === 'green') {
-  //       return '#57B74F';
-  //     } else if (this.state.business.color === 'blue') {
-  //       return '#6DCCEF';
-  //     } else if (this.state.business.color === 'yellow') {
-  //       return '#F2EB39';
-  //     }
-  // };
-
-
 
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467'}}>
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40}}>Did you find a business you liked? Check out more info here!</Text>
         <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
-          {/* {this.state.businesses.map((business, index) =>{
-            return ( */}
-              <View>
-                <Text style={{
-                  backgroundColor:'#CB3795',
-                  marginLeft:20,
-                  marginRight:20,
+          {this.state.businesses.map((business, index) =>{
+            return (
+              <Text
+                style={{
+                  backgroundColor:business.color,
+                  fontSize: 14,
                   marginTop:5,
-                  padding: 20,
+                  padding:5,
+                  fontWeight: 'bold',
                   textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Computer and IT
-                </Text>
-                <Text style={{backgroundColor:'#EA2430',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Health Services
-                </Text>
-                <Text style={{backgroundColor:'#F2EB39',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Business, Finance and Hospitality
-                </Text>
-                <Text style={{
-                  backgroundColor:'#F79835',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Engineering, Const., Manuf., Automotive/Heavy Equipment
-                </Text>
-                <Text style={{
-                  backgroundColor:'#57B74F',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Ag. Food and Natural Resources
-                </Text>
-                <Text style={{
-                  backgroundColor:'#6DCCEF',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:20,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Public Safety
-                </Text>
-                <Text style={{
-                  backgroundColor:'#231F20',
-                  color:'white',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:20,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Liberal Arts
-                </Text>
-                {/* <Text
-                  style={{
-                    backgroundColor:business.color,
-                    fontSize: 14,
-                    marginTop:5,
-                    padding:5,
-                    fontWeight: 'bold',
-                    textAlign:'center',
-                    flex:1,
-                    borderWidth: 1,
-                }}>{business.name}</Text> */}
-              </View>
+                  flex:1,
+                  borderWidth: 1,
+            }}>{business.name}</Text>)
+          })}
         </View>
           <View style={{ marginBottom:130,}}>
           </View>

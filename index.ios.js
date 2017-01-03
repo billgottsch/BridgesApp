@@ -10,13 +10,12 @@ import Navigation from './Pages/Navigation';
 export default class BridgesApp extends Component {
   render() {
     return (
-      <View>
-        <StatusBarBackground />
         <View>
-          <Navigation />
+          <StatusBarBackground />
+          <View>
+            <Navigation />
+          </View>
         </View>
-      </View>
-
     );
   }
 }
