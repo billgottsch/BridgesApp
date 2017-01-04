@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
+import { AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import Button from 'react-native-button';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
@@ -24,7 +24,7 @@ export default class AddCode extends Component {
             Fill me out first!
           </Button> */}
         {/* </View> */}
-        <View style={{flex:1,alignItems:'center', padding:10, justifyContent:'center', flexDirection:'row'}}>
+        <View style={{flex:1,alignItems:'center', paddingTop:30, justifyContent:'center', flexDirection:'row'}}>
           <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:320}}>To be eligible for the giveaways you must talk with at least 6 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be registered!</Text>
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
