@@ -27,7 +27,7 @@ export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'ListOfBusinesses',
+      page:'HomePage',
     };
   }
   renderPage() {
@@ -47,15 +47,8 @@ export default class Navigation extends Component {
       case 'AddCode':
         return <View><AddCode /></View>;
 
-      case 'ListofCareers':
-        return <View><ListofCareers /></View>;
-
-      case 'ListOfBusinesses':
-        return <View><ListOfBusinesses /></View>;
-
-
       default:
-        return <View><ListOfBusinesses /></View>;
+        return <View><HomePage /></View>;
       }
     };
 

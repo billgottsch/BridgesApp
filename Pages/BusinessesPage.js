@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, AppRegistry, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { TouchableOpacity, TouchableHighlight, Alert, AppRegistry, Modal, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { Router, Scene, Actions } from 'react-native-router-flux';
 import HideableView from 'react-native-hideable-view';
 
@@ -184,27 +184,77 @@ export default class BusinessesPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: false,
-      businessPurple: businessPurple,
-      businessYellow: businessYellow,
-      businessOrange: businessOrange,
-      businessBlack: businessBlack,
-      businessRed: businessRed,
-      businessGreen: businessGreen,
-      businessBlue: businessBlue,
+      visible1: false,
+      visible2: false,
+      visible3: false,
+      visible4: false,
+      visible5: false,
+      visible6: false,
+      visible7: false,
+      visible11: false,
+      modalVisible: false,
+
+        businessPurple: businessPurple,
+        businessYellow: businessYellow,
+        businessOrange: businessOrange,
+        businessBlack: businessBlack,
+        businessRed: businessRed,
+        businessGreen: businessGreen,
+        businessBlue: businessBlue,
     };
-    this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-    // if (condition) {
-    //
-    // }
+  toggle1(e) {
     this.setState({
-      visible: !this.state.visible
-    });
+        visible1: !this.state.visible1
+      })
   }
 
+  toggle2(e) {
+    this.setState({
+        visible2: !this.state.visible2
+      })
+  }
+
+  toggle3(e) {
+    this.setState({
+        visible3: !this.state.visible3
+      })
+  }
+
+  toggle4(e) {
+    this.setState({
+        visible4: !this.state.visible4
+      })
+  }
+
+  toggle5(e) {
+    this.setState({
+        visible5: !this.state.visible5
+      })
+  }
+
+  toggle6(e) {
+    this.setState({
+        visible6: !this.state.visible6
+      })
+  }
+
+  toggle7(e) {
+    this.setState({
+        visible7: !this.state.visible7
+      })
+  }
+
+  toggle11(e) {
+    this.setState({
+        visible11: !this.state.visible11
+      })
+  }
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
 
   render() {
     return(
@@ -212,7 +262,7 @@ export default class BusinessesPage extends Component {
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40}}>Did you find a business you liked? Check out more info here!</Text>
         <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
         <View>
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle1.bind(this)}>
             <Text
               style={{
               backgroundColor:'#CB3795',
@@ -236,13 +286,13 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visible}>
+            visible={this.state.visible1}>
               {this.state.businessPurple.map((business, index) =>{
                 return (<View key={index}><Text style={styles.businessPurple} key={index}>{business.name}</Text></View>)
               })}
           </HideableView>
         </View>
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle2.bind(this)}>
               <Text style={{backgroundColor:'#EA2430',
                 marginLeft:20,
                 marginRight:20,
@@ -264,18 +314,18 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visible}>
+            visible={this.state.visible2}>
             {this.state.businessRed.map((business, index) =>{
               return (<View key={index}><Text style={styles.businessRed} key={index}>{business.name}</Text></View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle3.bind(this)}>
             <Text style={{backgroundColor:'#F2EB39',
                 marginLeft:20,
                 marginRight:20,
                 marginTop:10,
-                padding: 20,
+                padding: 15,
                 textAlign:'center',
                 fontSize:18,
                 borderColor:'#43781c',
@@ -292,19 +342,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible}>
+              visible={this.state.visible3}>
             {this.state.businessYellow.map((business, index) =>{
               return (<View key={index}><Text style={styles.businessYellow} key={index}>{business.name}</Text></View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle4.bind(this)}>
               <Text style={{
                 backgroundColor:'#F79835',
                 marginLeft:20,
                 marginRight:20,
                 marginTop:10,
-                padding: 20,
+                padding: 15,
                 textAlign:'center',
                 fontSize:18,
                 borderColor:'#43781c',
@@ -321,21 +371,21 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible}>
+              visible={this.state.visible4}>
             {this.state.businessOrange.map((business, index) =>{
               return (<View key={index}><Text style={styles.businessOrange} key={index}>{business.name}</Text></View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle5.bind(this)}>
               <Text style={{
                 backgroundColor:'#57B74F',
                 marginLeft:20,
                 marginRight:20,
                 marginTop:10,
-                padding: 20,
+                padding: 12,
                 textAlign:'center',
-                fontSize:18,
+                fontSize:20,
                 borderColor:'#43781c',
                 borderWidth:1,
                 shadowColor: '#43781c',
@@ -350,13 +400,13 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible}>
+              visible={this.state.visible5}>
             {this.state.businessGreen.map((business, index) =>{
               return (<View key={index}><Text style={styles.businessGreen} key={index}>{business.name}</Text></View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle}>
+          <TouchableOpacity onPress={this.toggle6.bind(this)}>
               <Text style={{
                 backgroundColor:'#6DCCEF',
                 marginLeft:20,
@@ -379,13 +429,13 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible}>
+              visible={this.state.visible6}>
             {this.state.businessBlue.map((business, index) =>{
               return (<View key={index}><Text style={styles.businessBlue} key={index}>{business.name}</Text></View>)
             })}
           </HideableView>
           <View>
-            <TouchableOpacity onPress={this.toggle}>
+            <TouchableOpacity onPress={this.toggle7.bind(this)}>
                 <Text
                   style={{
                   backgroundColor:'#231F20',
@@ -410,14 +460,14 @@ export default class BusinessesPage extends Component {
             </TouchableOpacity>
             <HideableView
                 removeWhenHidden={true}
-                visible={this.state.visible}>
+                visible={this.state.visible7}>
               {this.state.businessBlack.map((business, index) =>{
                 return (<View key={index}><Text style={styles.businessBlack} key={index}>{business.name}</Text></View>)
               })}
             </HideableView>
           </View>
         </View>
-          <View style={{ marginBottom:130,}}>
+          <View style={{ marginBottom:150,}}>
           </View>
         </ScrollView>
     )

@@ -18,9 +18,6 @@ export default class HomePage extends Component {
               Career Exploration Day 2017
             </Text>
             <Text style={styles.homepageSubTitle}>
-              Check out the 'gift' tab for more information on the Giveaways!{"\n"}
-            </Text>
-            <Text style={styles.homepageSubTitle}>
               Don't miss this year's demonstrations!
             </Text>
             <View style={{flexDirection:'row'}}>
