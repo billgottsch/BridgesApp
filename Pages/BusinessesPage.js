@@ -7,12 +7,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
 import Tabs from 'react-native-tabs';
+import StatusBarBackground from './StatusBarBackground';
 
 import Navigation from './Navigation';
 import ListOfBusinesses from './ListOfBusinesses';
 
 const businessPurple = [
-  {name:'Brainerd Dispatch', address:'506 James St.', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-4705', color:'#CB3795'},
+  {name:'Brainerd Dispatch', address:'506 James St.', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-4705', color:'#CB3795', logo:'http://www.explorebrainerdlakes.com/wp-content/themes/explorebrainerdlakes/images/newlogo/brainerd-lakes-chamber-logo.png'},
   {name:'CLC - Art', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
   {name:'CLC - Communications Art & Design', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
   {name:'CLC - English', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
@@ -24,10 +25,6 @@ const businessPurple = [
   {name:'Ascensus', address:'Brainerd Mall Shopping Center', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-0565', color:'#CB3795'},
   {name:'Best Buy', address:'14555 Edgewood Dr N', city:'Baxter', state:'MN', zip:'56425', phone:'(218) 828-0700', color:'#CB3795'},
   {name:'Advance IT Minnesota', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
-  {name:'Advance IT Minnesota', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
-  {name:'Advance IT Minnesota', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
-  {name:'Advance IT Minnesota', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
-  {name:'Advance IT Minnesota', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
   {name:'CLC - Computer Technology', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#CB3795'},
   {name:'CTC - Consolidated Telephone Company', address:'1102 Madison St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 454-1234', color:'#CB3795'},
   {name:'Deerwood Technologies', address:'21301 Archibald Rd', city:'Deerwood', state:'MN', zip:'56444', phone:'(218) 534-5357', color:'#CB3795'},
@@ -37,7 +34,7 @@ const businessPurple = [
 ]
 
 const businessYellow = [
-  {name:'Brained Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39'},
+  {name:'Brained Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39', logo:'http://www.explorebrainerdlakes.com/wp-content/themes/explorebrainerdlakes/images/newlogo/brainerd-lakes-chamber-logo.png'},
   {name:'Brained Park and Recreation', address:'1619 Washington St NE', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 828-2320', color:'#F2EB39'},
   {name:'Breezy Point Resort', address:'9252 Breezy Point Drive', city:'Breezy Point', state:'MN', zip:'56472', phone:'1-800-432-3777', color:'#F2EB39'},
   {name:'Bremer Bank', address:'321 South 7th Street', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-8781', color:'#F2EB39'},
@@ -184,85 +181,115 @@ export default class BusinessesPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible1: false,
-      visible2: false,
-      visible3: false,
-      visible4: false,
-      visible5: false,
-      visible6: false,
-      visible7: false,
-      visible11: false,
+      visiblePurple: false,
+      visibleRed: false,
+      visibleYellow: false,
+      visibleOrange: false,
+      visibleGreen: false,
+      visibleBlue: false,
+      visibleBlack: false,
       modalVisible: false,
-
-        businessPurple: businessPurple,
-        businessYellow: businessYellow,
-        businessOrange: businessOrange,
-        businessBlack: businessBlack,
-        businessRed: businessRed,
-        businessGreen: businessGreen,
-        businessBlue: businessBlue,
+      modalBusiness: {color:'white'},
+      businessPurple: businessPurple,
+      businessYellow: businessYellow,
+      businessOrange: businessOrange,
+      businessBlack: businessBlack,
+      businessRed: businessRed,
+      businessGreen: businessGreen,
+      businessBlue: businessBlue,
     };
   }
 
-  toggle1(e) {
+  togglePurple(e) {
     this.setState({
-        visible1: !this.state.visible1
+        visiblePurple: !this.state.visiblePurple
       })
   }
 
-  toggle2(e) {
+  toggleRed(e) {
     this.setState({
-        visible2: !this.state.visible2
+        visibleRed: !this.state.visibleRed
       })
   }
 
-  toggle3(e) {
+  toggleYellow(e) {
     this.setState({
-        visible3: !this.state.visible3
+        visibleYellow: !this.state.visibleYellow
       })
   }
 
-  toggle4(e) {
+  toggleOrange(e) {
     this.setState({
-        visible4: !this.state.visible4
+        visibleOrange: !this.state.visibleOrange
       })
   }
 
-  toggle5(e) {
+  toggleGreen(e) {
     this.setState({
-        visible5: !this.state.visible5
+        visibleGreen: !this.state.visibleGreen
       })
   }
 
-  toggle6(e) {
+  toggleBlue(e) {
     this.setState({
-        visible6: !this.state.visible6
+        visibleBlue: !this.state.visibleBlue
       })
   }
 
-  toggle7(e) {
+  toggleBlack(e) {
     this.setState({
-        visible7: !this.state.visible7
+        visibleBlack: !this.state.visibleBlack
       })
   }
 
-  toggle11(e) {
+  setModalVisible(visible, business) {
     this.setState({
-        visible11: !this.state.visible11
-      })
-  }
-
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+      modalBusiness: business,
+      modalVisible: visible,
+    });
   }
 
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467'}}>
-        <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40}}>Did you find a business you liked? Check out more info here!</Text>
+
+      <Modal
+        animationType={"slide"}
+        transparent={false}
+        visible={this.state.modalVisible}
+      >
+        <StatusBarBackground />
+        <TouchableOpacity onPress={() => {
+            this.setModalVisible(!this.state.modalVisible)
+        }}>
+          <Text><FAIcon name='window-close-o' size={20} style={{padding:20}}></FAIcon></Text>
+        </TouchableOpacity>
+        <View>
+          {/* <Image
+            source={{uri:this.state.modalBusiness.logo}}
+          /> */}
+        </View>
+        <View>
+          {/* <Text style={{width:376, height:60, textAlign:'center'}}></Text> */}
+          <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center', backgroundColor:this.state.modalBusiness.color}}>{this.state.modalBusiness.name}</Text>
+          <Text>{"\n"}</Text>
+          <Text style={styles.modalName}>Address {"\n"}</Text>
+          <Text style={styles.modalData}>{this.state.modalBusiness.address}{"\n"}{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
+          <Text></Text>
+          <Text style={styles.modalName}>Give them a call!{"\n"}</Text>
+          <Text style={styles.modalData}>{this.state.modalBusiness.phone}</Text>
+          <Text>{"\n"}</Text>
+
+        </View>
+      </Modal>
+        <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>
+          Did you find a business you liked? Check out more info here!
+        </Text>
         <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
         <View>
-          <TouchableOpacity onPress={this.toggle1.bind(this)}>
+
+
+          <TouchableOpacity onPress={this.togglePurple.bind(this)}>
             <Text
               style={{
               backgroundColor:'#CB3795',
@@ -284,15 +311,24 @@ export default class BusinessesPage extends Component {
               Computer and IT
             </Text>
           </TouchableOpacity>
+
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visible1}>
+            visible={this.state.visiblePurple}>
               {this.state.businessPurple.map((business, index) =>{
-                return (<View key={index}><Text style={styles.businessPurple} key={index}>{business.name}</Text></View>)
+                return (
+                  <View key={index}>
+                    <TouchableOpacity onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                      <Text style={styles.businessPurple} key={index}>{business.name}</Text>
+                    </TouchableOpacity>
+                </View>)
               })}
           </HideableView>
         </View>
-          <TouchableOpacity onPress={this.toggle2.bind(this)}>
+
+          <TouchableOpacity onPress={this.toggleRed.bind(this)}>
               <Text style={{backgroundColor:'#EA2430',
                 marginLeft:20,
                 marginRight:20,
@@ -314,13 +350,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visible2}>
+            visible={this.state.visibleRed}>
             {this.state.businessRed.map((business, index) =>{
-              return (<View key={index}><Text style={styles.businessRed} key={index}>{business.name}</Text></View>)
+              return (<View key={index}>
+                        <TouchableOpacity onPress={() => {
+                           this.setModalVisible(true, business)
+                        }}>
+                          <Text style={styles.businessRed} key={index}>{business.name}</Text>
+                        </TouchableOpacity>
+                      </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle3.bind(this)}>
+          <TouchableOpacity onPress={this.toggleYellow.bind(this)}>
             <Text style={{backgroundColor:'#F2EB39',
                 marginLeft:20,
                 marginRight:20,
@@ -342,13 +384,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible3}>
+              visible={this.state.visibleYellow}>
             {this.state.businessYellow.map((business, index) =>{
-              return (<View key={index}><Text style={styles.businessYellow} key={index}>{business.name}</Text></View>)
+              return (<View key={index}>
+                        <TouchableOpacity onPress={() => {
+                           this.setModalVisible(true, business)
+                        }}>
+                          <Text style={styles.businessYellow} key={index}>{business.name}</Text>
+                        </TouchableOpacity>
+                      </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle4.bind(this)}>
+          <TouchableOpacity onPress={this.toggleOrange.bind(this)}>
               <Text style={{
                 backgroundColor:'#F79835',
                 marginLeft:20,
@@ -371,13 +419,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible4}>
+              visible={this.state.visibleOrange}>
             {this.state.businessOrange.map((business, index) =>{
-              return (<View key={index}><Text style={styles.businessOrange} key={index}>{business.name}</Text></View>)
+              return (<View key={index}>
+                        <TouchableOpacity onPress={() => {
+                           this.setModalVisible(true, business)
+                        }}>
+                          <Text style={styles.businessOrange} key={index}>{business.name}</Text>
+                        </TouchableOpacity>
+                      </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle5.bind(this)}>
+          <TouchableOpacity onPress={this.toggleGreen.bind(this)}>
               <Text style={{
                 backgroundColor:'#57B74F',
                 marginLeft:20,
@@ -400,13 +454,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible5}>
+              visible={this.state.visibleGreen}>
             {this.state.businessGreen.map((business, index) =>{
-              return (<View key={index}><Text style={styles.businessGreen} key={index}>{business.name}</Text></View>)
+              return (<View key={index}>
+                        <TouchableOpacity onPress={() => {
+                           this.setModalVisible(true, business)
+                        }}>
+                          <Text style={styles.businessGreen} key={index}>{business.name}</Text>
+                        </TouchableOpacity>
+                      </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggle6.bind(this)}>
+          <TouchableOpacity onPress={this.toggleBlue.bind(this)}>
               <Text style={{
                 backgroundColor:'#6DCCEF',
                 marginLeft:20,
@@ -429,13 +489,19 @@ export default class BusinessesPage extends Component {
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visible6}>
+              visible={this.state.visibleBlue}>
             {this.state.businessBlue.map((business, index) =>{
-              return (<View key={index}><Text style={styles.businessBlue} key={index}>{business.name}</Text></View>)
+              return (<View key={index}>
+                        <TouchableOpacity onPress={() => {
+                           this.setModalVisible(true, business)
+                        }}>
+                          <Text style={styles.businessBlue} key={index}>{business.name}</Text>
+                        </TouchableOpacity>
+                      </View>)
             })}
           </HideableView>
           <View>
-            <TouchableOpacity onPress={this.toggle7.bind(this)}>
+            <TouchableOpacity onPress={this.toggleBlack.bind(this)}>
                 <Text
                   style={{
                   backgroundColor:'#231F20',
@@ -460,14 +526,20 @@ export default class BusinessesPage extends Component {
             </TouchableOpacity>
             <HideableView
                 removeWhenHidden={true}
-                visible={this.state.visible7}>
+                visible={this.state.visibleBlack}>
               {this.state.businessBlack.map((business, index) =>{
-                return (<View key={index}><Text style={styles.businessBlack} key={index}>{business.name}</Text></View>)
+                return (<View key={index}>
+                          <TouchableOpacity onPress={() => {
+                             this.setModalVisible(true, business)
+                          }}>
+                            <Text style={styles.businessBlack} key={index}>{business.name}</Text>
+                          </TouchableOpacity>
+                        </View>)
               })}
             </HideableView>
           </View>
         </View>
-          <View style={{ marginBottom:150,}}>
+          <View style={{ marginBottom:160,}}>
           </View>
         </ScrollView>
     )

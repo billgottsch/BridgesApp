@@ -40,7 +40,7 @@ export default class HomePage extends Component {
             </View>
           </View>
             <View style={{ marginBottom:150}}>
-              <Text style={{textAlign:'center',marginTop:20, padding:5,backgroundColor:'white', color:"#88B467"}}>What do you want to explore today?</Text>
+              <Text style={{textAlign:'center', marginBottom:5,backgroundColor:'white', color:"#88B467"}}>What do you want to explore today?</Text>
               <Image source={require('BridgesApp/assets/cedmap.jpg')} style={styles.fullMap}/>
             </View>
           </View>

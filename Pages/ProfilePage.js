@@ -22,8 +22,12 @@ export default class ProfilePage extends Component {
     }
   }
 
+  onStudentDataChange() {
+
+  }
+
   onInputSubmit(e) {
-    return (<Text>Thanks!</Text>)
+    return (<View><Text>Thanks!</Text></View>)
   }
   render() {
     return(
@@ -34,42 +38,55 @@ export default class ProfilePage extends Component {
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
-            // onChangeText={this.state.schools.filter((name) => {})}
             keyboardType='default'
             style={styles.profileInput}
-            value={this.state.entry.name}
+            // value={this.state.entry.name}
             placeholderTextColor='#88B467'
             placeholder="Name"
+            returnKeyType="next"
+            onChangeText={name => this.setState({name})}
+            onSubmitEditing={(event) => {
+              this.refs.SecondInput.focus();
+            }}
           />
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
-            // onChangeText={this.state.schools.filter((name) => {})}
+            ref="SecondInput"
             keyboardType='default'
             style={styles.profileInput}
-            value={this.state.entry.school}
+            // value={this.state.entry.school}
             placeholderTextColor='#88B467'
             placeholder="School"
+            returnKeyType='next'
+            onSubmitEditing={(event) => {
+              this.refs.ThirdInput.focus();
+            }}
           />
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
-            // onChangeText={this.state.schools.filter((name) => {})}
-            keyboardType='default'
+            ref="ThirdInput"
+            keyboardType='numbers-and-punctuation'
             style={styles.profileInput}
-            value={this.state.entry.phone}
+            // value={this.state.entry.phone}
             placeholderTextColor='#88B467'
             placeholder="Phone"
+            returnKeyType='next'
+            onSubmitEditing={(event) => {
+              this.refs.FourthInput.focus();
+            }}
           />
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
-            // onChangeText={this.state.schools.filter((name) => {})}
-            keyboardType='default'
+            ref="FourthInput"
+            keyboardType='email-address'
             style={styles.profileInput}
-            value={this.state.entry.email}
+            // value={this.state.entry.email}
             placeholderTextColor='#88B467'
             placeholder="Email"
+            returnKeyType='done'
           />
         </View>
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
@@ -77,7 +94,7 @@ export default class ProfilePage extends Component {
             containerStyle={{backgroundColor:'#43781C', padding:10, width:180, marginTop:10 }}
             style={{fontSize: 14, color: 'white'}}
             styleDisabled={{color: 'red'}}
-            onPress={(entry) => this.onInputSubmit.bind(this)}>
+            onPress={this.onInputSubmit.bind(this)}>
             Lets get to exploring!
           </Button>
         </View>

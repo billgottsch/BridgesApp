@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, Image, Text, View, StyleSheet, ScrollView } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
+import Tabs from 'react-native-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
@@ -19,21 +20,17 @@ import CareersPage from './CareersPage';
 import ListOfBusinesses from './ListOfBusinesses';
 
 
-
-import Tabs from 'react-native-tabs';
-
-
 export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'HomePage',
+      page:'ProfilePage',
     };
   }
   renderPage() {
       switch (this.state.page) {
-      case 'HomePage':
-        return <View><HomePage /></View>;
+      case 'ProfilePage':
+        return <View><ProfilePage /></View>;
 
       case 'BusinessesPage':
         return <View><BusinessesPage /></View>;
@@ -67,12 +64,12 @@ export default class Navigation extends Component {
         </View>
         <View style={styles.navContent}>
           <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
-                onSelect={this.onTabSelect.bind(this)}>
-              <Text name="HomePage"><FAIcon key='first' style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='calendar' size={20}/></Text>
-              <Text name="BusinessesPage"><Icon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='ios-briefcase' size={20}/></Text>
-              <Text name="CareersPage"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='map' size={20}/></Text>
-              <Text name="BusSchedule"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='bus' size={20}/></Text>
-              <Text name="AddCode"><FAIcon style={styles.navIcons} selectedIconStyle={styles.navIconsTwo} type='icon' name='gift' size={20}/></Text>
+                onSelect={this.onTabSelect.bind(this)} selectedStyle={styles.navIconsTwo}>
+              <Text style={styles.navIcons} name="HomePage"><FAIcon key='first' selectedStyle={styles.navIconsTwo} type='icon' name='calendar' size={20}/></Text>
+              <Text style={styles.navIcons} name="BusinessesPage"><Icon selectedStyle={styles.navIconsTwo} type='icon' name='ios-briefcase' size={20}/></Text>
+              <Text style={styles.navIcons} name="CareersPage"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='map' size={20}/></Text>
+              <Text style={styles.navIcons} name="BusSchedule"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='bus' size={20}/></Text>
+              <Text style={styles.navIcons} name="AddCode"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='gift' size={20}/></Text>
           </Tabs>
         </View>
         {this.renderPage()}

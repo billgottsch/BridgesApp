@@ -47,11 +47,12 @@ const styles = StyleSheet.create({
   },
 
   homepageTitle: {
+    fontFamily:'Helvetica',
     fontSize:26,
     fontWeight:'bold',
     width:300,
     textAlign:'center',
-    marginTop:40,
+    marginTop:20,
     marginLeft: 60,
     marginRight: 60,
     marginBottom: 20,
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
   },
 
   homepageSubTitle: {
+    fontFamily:'Helvetica',
     fontSize:20,
     padding: 0,
     width:260,
@@ -79,11 +81,12 @@ const styles = StyleSheet.create({
   },
 
   homepageText: {
+    fontFamily:'Helvetica',
     fontSize: 12,
     marginTop:15,
     textAlign:'center',
     padding:5,
-    width: 250,
+    width: 290,
     borderColor:'#43781c',
     borderWidth:1,
     shadowColor: '#43781c',
@@ -97,11 +100,12 @@ const styles = StyleSheet.create({
   },
 
   homepageTextTwo: {
+    fontFamily:'Helvetica',
     fontSize: 12,
     marginTop:15,
     textAlign:'center',
     padding:5,
-    width: 250,
+    width: 290,
     borderColor:'#43781c',
     borderWidth:1,
     shadowColor: '#43781c',
@@ -115,11 +119,12 @@ const styles = StyleSheet.create({
   },
 
   homepageTextThree: {
+    fontFamily:'Helvetica',
     fontSize: 12,
     marginTop:15,
     textAlign:'center',
     padding:5,
-    width: 250,
+    width: 290,
     borderColor:'#43781c',
     borderWidth:1,
     shadowColor: '#43781c',
@@ -134,12 +139,13 @@ const styles = StyleSheet.create({
 
 
   homepageTextTitle: {
+    fontFamily:'Helvetica',
     fontSize: 14,
     fontWeight: 'bold',
   },
 
   homepageTextData: {
-    padding: 10,
+    fontFamily:'Helvetica',
   },
 
   statusbarbackground:{
@@ -324,13 +330,9 @@ const styles = StyleSheet.create({
 
   navIcons: {
     color:'#43781c',
-    borderBottomWidth:2,
-    borderBottomColor:'red',
   },
   navIconsTwo: {
-    color:'red',
-    borderBottomWidth:2,
-    borderBottomColor:'red',
+    color:'orange',
   },
 
   businessesList: {
@@ -372,8 +374,31 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:'#fff',
     fontSize:14,
-  }
+  },
 
+  modalTitle: {
+    fontSize:20,
+    fontWeight:'bold',
+    textAlign:'center',
+
+  },
+
+  modalName:{
+    fontSize:16,
+    fontWeight:'bold',
+    textAlign:'center',
+
+  },
+
+  modalData: {
+    textAlign:'center',
+    marginLeft: 10,
+    marginRight: 10,
+  },
+
+  modalPhone: {
+    textAlign:'center',
+  }
 
 });
 
