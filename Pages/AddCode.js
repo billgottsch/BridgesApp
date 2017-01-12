@@ -99,7 +99,7 @@ export default class AddCode extends Component {
           <FAIcon style={{color:this.state.dot5Color,margin:5}} type='icon' name='circle' size={20}/>
           <FAIcon style={{color:this.state.dot6Color,margin:5}} type='icon' name='circle' size={20}/>
         </View>
-        
+
         <View>
           <Text style={{textAlign:'center', marginTop:20, marginBottom:20, fontWeight:'bold'}}> 0/6 codes filled. {"\n"} Keep exploring!</Text>
         </View>
