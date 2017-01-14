@@ -253,7 +253,7 @@ export default class BusinessesPage extends Component {
     return(
       <ScrollView style={{backgroundColor:'#88B467'}}>
 
-      <Modal
+      {this.state.modalVisible ? <Modal
         animationType={"slide"}
         transparent={false}
         visible={this.state.modalVisible}
@@ -281,7 +281,7 @@ export default class BusinessesPage extends Component {
           <Text>{"\n"}</Text>
 
         </View>
-      </Modal>
+      </Modal> : null }
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>
           Did you find a business you liked? Check out more info here!
         </Text>

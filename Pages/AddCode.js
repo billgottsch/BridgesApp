@@ -3,60 +3,49 @@ import { AsyncStorage, Alert, AppRegistry, StyleSheet, Text, TextInput, View, Im
 import Button from 'react-native-button';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
+
 import { Router, Scene } from 'react-native-router-flux';
+import ProfilePage from './ProfilePage';
 
 
-const codeYellow = 'bizhosp'
-const codeOrange = 'mmceaa'
-const codeBlue = 'lecps'
-const codeBlack = 'libart'
-const codeGreen = 'agfoodnr'
-const codeRed = 'healsci'
-const codePurple = 'comartdes'
 
 export default class AddCode extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      page:'AddCode',
       codeText:'',
-      dot1Color: 'white',
-      dot2Color: 'white',
-      dot3Color: 'white',
-      dot4Color: 'white',
-      dot5Color: 'white',
-      dot6Color: 'white',
-
-      codeYellow:'bizhosp',
-      codeOrange:'mmceaa',
-      codeBlue:'lecps',
-      codeBlack:'libart',
-      codeGreen:'agfoodnr',
-      codeRed:'healsci',
-      codePurple:'comartdes'
+      circles:[],
+      clusters:[
+        {code:'bizhosp', color:'yellow'},
+        {code:'mmceaa', color:'orange'},
+        {code:'lecps', color:'blue'},
+        {code:'libart', color:'black'},
+        {code:'agfoodnr', color:'green'},
+        {code:'healsci', color:'red'},
+        {code:'comartdes', color:'purple'},
+      ],
     }
   }
 
   onCodeSubmit() {
-    if (this.state.codeText === this.state.codeYellow) {
-      return this.setState({dot1Color: 'yellow'})
-    } else if (this.state.codeText === this.state.codeOrange ){
-      return this.setState({dot1Color:'orange'})
-    } else if (this.state.codeText === this.state.codeBlue) {
-      return this.setState({dot1Color:'blue'})
-    } else if (this.state.codeText === this.state.codeBlack) {
-      return this.setState({dot1Color:'black'})
-    } else if (this.state.codeText === this.state.codeGreen ) {
-      return this.setState({dot1Color:'green'})
-    } else if (this.state.codeText === this.state.codeRed) {
-      return this.setState({dot1Color:'red'})
-    } else if (this.state.codeText === this.state.codePurple ) {
-      return this.setState({dot1Color:'purple'})
-    } else if (this.state.dot1Color !== 'white'){
-      return this.setState({dot2Color:'blue'})
-    } else {
-      return Alert.alert('Oops! Your code does not match any cluster code. \n Please try again!')
+    var correctCodes = this.state.clusters.filter((cluster) => {
+      return this.state.codeText === cluster.code
+    })
+    if (correctCodes.length > 0) {
+      var newCircles = this.state.circles.slice(0).concat([correctCodes[0].color])
+      this.setState({circles:newCircles})
     }
   }
+  //
+  // onCompletedCodes() {
+  //   if (this.state.circles.length === this.state.clusters.length) {
+  //     return switch (this.state.page) {
+  //             case 'ProfilePage':
+  //               return <View><ProfilePage /></View>;
+  //             }
+  //   }
+  // };
 
   render() {
     return(
@@ -92,18 +81,16 @@ export default class AddCode extends Component {
         </View>
 
         <View style={{margin:20, flexDirection:'row', justifyContent:'center'}}>
-          <FAIcon style={{color:this.state.dot1Color,margin:5}} type='icon' name='circle' size={20}/>
-          <FAIcon style={{color:this.state.dot2Color,margin:5}} type='icon' name='circle' size={20}/>
-          <FAIcon style={{color:this.state.dot3Color,margin:5}} type='icon' name='circle' size={20}/>
-          <FAIcon style={{color:this.state.dot4Color,margin:5}} type='icon' name='circle' size={20}/>
-          <FAIcon style={{color:this.state.dot5Color,margin:5}} type='icon' name='circle' size={20}/>
-          <FAIcon style={{color:this.state.dot6Color,margin:5}} type='icon' name='circle' size={20}/>
+          {this.state.clusters.map((cluster, index) => {
+            return (<FAIcon key={index} style={{color:this.state.circles.length < index+1 ? 'white' : this.state.circles[index] ,margin:5}} type='icon' name='circle' size={20}/>
+            )
+          })}
         </View>
 
         <View>
-          <Text style={{textAlign:'center', marginTop:20, marginBottom:20, fontWeight:'bold'}}> 0/6 codes filled. {"\n"} Keep exploring!</Text>
+          <Text style={{textAlign:'center', marginTop:20, marginBottom:20, fontWeight:'bold'}}> {this.state.circles.length}/{this.state.clusters.length} codes filled. {"\n"} Keep exploring!</Text>
         </View>
-
+        {/* {this.onCompletedCodes()} */}
       </ScrollView>
     )
   }

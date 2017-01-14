@@ -211,7 +211,7 @@ setModalVisible(visible, career) {
 render() {
   return(
       <ScrollView style={{backgroundColor:'#88B467'}}>
-        <Modal
+        {this.state.modalVisible ? <Modal
           animationType={"slide"}
           transparent={false}
           visible={this.state.modalVisible}
@@ -242,7 +242,7 @@ render() {
             <Text style={{marginTop:100, textAlign:'center', color: '#ccc'}}>powered by MN DEED</Text>
 
           </View>
-        </Modal>
+        </Modal> : null }
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>Take a look at the careers represented today!</Text>
         <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
           <View>

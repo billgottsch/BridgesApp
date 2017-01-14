@@ -29,13 +29,6 @@ const styles = StyleSheet.create({
     width: 100,
   },
 
-  homepageContent: {
-    flex: 1,
-    backgroundColor: '#88B467',
-    padding: 0,
-    margin:0,
-    alignItems: 'center',
-  },
   inputSearch: {
     backgroundColor:'#fff',
     height: 40,
@@ -45,13 +38,18 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:'#fff',
   },
+  homepageContent: {
+    backgroundColor: '#88B467',
+    padding: 0,
+    margin:0,
+    alignItems: 'center',
+  },
 
   homepageTitle: {
     fontFamily:'Helvetica',
     fontSize:26,
     fontWeight:'bold',
     width:300,
-    textAlign:'center',
     marginTop:20,
     marginLeft: 60,
     marginRight: 60,
@@ -68,9 +66,9 @@ const styles = StyleSheet.create({
 
   homepageSubTitle: {
     fontFamily:'Helvetica',
-    fontSize:20,
+    fontSize:18,
     padding: 0,
-    width:260,
+    marginBottom:5,
     textAlign:'center',
     textShadowColor: '#839477',
     textShadowRadius:.5,
@@ -80,72 +78,34 @@ const styles = StyleSheet.create({
     },
   },
 
-  homepageText: {
-    fontFamily:'Helvetica',
-    fontSize: 12,
-    marginTop:15,
-    textAlign:'center',
-    padding:5,
-    width: 290,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    backgroundColor:'#6DCCEF',
+  homepageTextWrapper:{
+    backgroundColor:'#BAD0AB',
+    marginTop:5,
+    marginBottom:5,
+    flex:1,
+    alignItems:'center',
+    flexDirection:'row',
+    justifyContent:'center',
   },
 
-  homepageTextTwo: {
-    fontFamily:'Helvetica',
-    fontSize: 12,
-    marginTop:15,
-    textAlign:'center',
+  homepageTextTime: {
+    fontWeight:'bold',
     padding:5,
-    width: 290,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    backgroundColor:'#F79835',
   },
-
-  homepageTextThree: {
-    fontFamily:'Helvetica',
-    fontSize: 12,
-    marginTop:15,
-    textAlign:'center',
-    padding:5,
-    width: 290,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    backgroundColor:'#F2EB39',
-  },
-
 
   homepageTextTitle: {
     fontFamily:'Helvetica',
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: 'bold',
+    flex:3,
+    marginLeft:20,
   },
 
   homepageTextData: {
+    flex:3,
+    fontWeight:'normal',
     fontFamily:'Helvetica',
+    fontSize:13,
   },
 
   statusbarbackground:{
@@ -325,14 +285,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#BAD0AB',
   },
 
   navIcons: {
     color:'#43781c',
+
   },
   navIconsTwo: {
-    color:'orange',
+    backgroundColor:'#43781c',
+    alignItems:'center',
+    color:'white',
+    padding:5,
   },
 
   businessesList: {
@@ -377,16 +341,13 @@ const styles = StyleSheet.create({
   },
 
   modalTitle: {
-    fontSize:20,
+    fontSize:16,
     fontWeight:'bold',
     textAlign:'center',
 
   },
 
   modalName:{
-    fontSize:16,
-    fontWeight:'bold',
-    textAlign:'center',
 
   },
 
