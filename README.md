@@ -10,10 +10,10 @@ Career Exploration Day is their capstone even that happens once a year in March.
 This may sound like a career "fair" where businesses pile in behind tables or booths and hand out flyers to get employees, but it's waaaaay different. The day is filled with tons of literal hands-on experiences in each "Cluster".
 
 A "Cluster" is what each business is broken down into (which are color coordinated. The 7 Clusters are:
->Orange - Construction & Trades, Marine & Small Engines, Automotive & Heavy Equipment, Welding, Manufacturing, Engineering & Aviation
->Blue - Public Safety
->Yellow - Hospitality & Recreation, Business & Finance
->Green - Agriculture, Food & Natural Resources
->Purple - Communication, Art & Design, Computers & IT
->Black - Liberal Arts
->Red - Health Sciences
+- Orange - Construction & Trades, Marine & Small Engines, Automotive & Heavy Equipment, Welding, Manufacturing, Engineering & Aviation
+- Blue - Public Safety
+- Yellow - Hospitality & Recreation, Business & Finance
+- Green - Agriculture, Food & Natural Resources
+- Purple - Communication, Art & Design, Computers & IT
+- Black - Liberal Arts
+- Red - Health Sciences
