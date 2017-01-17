@@ -292,11 +292,9 @@ const styles = StyleSheet.create({
     color:'#43781c',
 
   },
-  navIconsTwo: {
-    backgroundColor:'#43781c',
+  navSelected: {
     alignItems:'center',
     color:'white',
-    padding:5,
   },
 
   businessesList: {
@@ -348,7 +346,9 @@ const styles = StyleSheet.create({
   },
 
   modalName:{
-
+    textAlign:'center',
+    fontSize:18,
+    fontWeight:'bold',
   },
 
   modalData: {

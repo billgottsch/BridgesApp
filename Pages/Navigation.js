@@ -64,12 +64,12 @@ export default class Navigation extends Component {
         </View>
         <View style={styles.navContent}>
           <Tabs selected={this.state.page} style={{backgroundColor:'#BAD0AB'}}
-                onSelect={this.onTabSelect.bind(this)} selectedStyle={styles.navIconsTwo}>
-              <Text style={styles.navIcons} name="HomePage"><FAIcon key='first' selectedStyle={styles.navIconsTwo} type='icon' name='calendar' size={20}/></Text>
-              <Text style={styles.navIcons} name="BusinessesPage"><Icon selectedStyle={styles.navIconsTwo} type='icon' name='ios-briefcase' size={20}/></Text>
-              <Text style={styles.navIcons} name="CareersPage"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='map' size={20}/></Text>
-              <Text style={styles.navIcons} name="BusSchedule"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='bus' size={20}/></Text>
-              <Text style={styles.navIcons} name="AddCode"><FAIcon selectedStyle={styles.navIconsTwo} type='icon' name='gift' size={20}/></Text>
+                onSelect={this.onTabSelect.bind(this)} selectedStyle={styles.navSelected}>
+              <Text style={styles.navIcons} name="HomePage"><FAIcon key='first' selectedStyle={styles.navSelected} type='icon' name='calendar' size={20}/></Text>
+              <Text style={styles.navIcons} name="BusinessesPage"><Icon selectedStyle={styles.navSelected} type='icon' name='ios-briefcase' size={20}/></Text>
+              <Text style={styles.navIcons} name="CareersPage"><FAIcon selectedStyle={styles.navSelected} type='icon' name='map' size={20}/></Text>
+              <Text style={styles.navIcons} name="BusSchedule"><FAIcon selectedStyle={styles.navSelected} type='icon' name='bus' size={20}/></Text>
+              <Text style={styles.navIcons} name="AddCode"><FAIcon selectedStyle={styles.navSelected} type='icon' name='gift' size={20}/></Text>
           </Tabs>
         </View>
         {this.renderPage()}
