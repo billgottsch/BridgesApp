@@ -4,7 +4,6 @@ import Button from 'react-native-button';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
 
-import { Router, Scene } from 'react-native-router-flux';
 import ProfilePage from './ProfilePage';
 
 
@@ -28,34 +27,45 @@ export default class AddCode extends Component {
     }
   }
 
+  componentDidMount() {
+    AsyncStorage.getItem('circles').then((circles) => {
+      if (circles == null) {
+        circles = []
+      } else {
+        circles = JSON.parse(circles)
+      }
+      this.setState({circles})
+    })
+  }
+
   onCodeSubmit() {
     var correctCodes = this.state.clusters.filter((cluster) => {
       return this.state.codeText === cluster.code
     })
     if (correctCodes.length > 0) {
       var newCircles = this.state.circles.slice(0).concat([correctCodes[0].color])
-      this.setState({circles:newCircles})
+      this.setState({circles:newCircles, codeText: ''}, () => {
+        AsyncStorage.setItem('circles', JSON.stringify(newCircles)).then(() => {
+          if (this.state.circles.length >= 7) {
+            Alert.alert('you have all your codes!')
+          }
+        })
+      })
     }
   }
 
-  // clearText(codeInput) {
-  //     this.refs[codeInput].setNativeProps({text: ''});
-  //   }
-
-
-  render() {
-    return(
-      <ScrollView style={{backgroundColor:'#88B467', height: 600}}>
-
+  renderCodesPage() {
+    return (
+      <View>
         <View style={{flex:1,alignItems:'center', paddingTop:30, justifyContent:'center', flexDirection:'row'}}>
-          <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:320}}>To be eligible for the giveaways you must talk with at least 6 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be registered!</Text>
+          <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:290}}>To be eligible for the giveaways you must talk with at least 7 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be registered!</Text>
         </View>
 
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
             autoCapitalize="none"
             spellCheck= 'false'
-            defaultValue={this.state.initialText}
+            value={this.state.codeText}
             keyboardType='default'
             style={styles.inputSearch}
             placeholderTextColor='#88B467'
@@ -87,6 +97,15 @@ export default class AddCode extends Component {
         <View>
           <Text style={{textAlign:'center', marginTop:20, marginBottom:20, fontWeight:'bold'}}> {this.state.circles.length}/{this.state.clusters.length} codes filled. {"\n"} Keep exploring!</Text>
         </View>
+      </View>
+
+    )
+  }
+
+  render() {
+    return(
+      <ScrollView style={{backgroundColor:'#88B467', height: 600}}>
+        {this.state.circles.length < 7 ? this.renderCodesPage() : <ProfilePage circles={this.state.circles}/>}
       </ScrollView>
     )
   }

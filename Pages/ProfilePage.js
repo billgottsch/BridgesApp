@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
+import {Alert, AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import Button from 'react-native-button';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -16,20 +16,46 @@ export default class ProfilePage extends Component {
     }
   }
 
-  componentDidMount(value) {
+  componentDidMount() {
     AsyncStorage.getItem('name').then((value) => {
       this.setState({'name': value})
     }).done()
+    AsyncStorage.getItem('school').then((value) => {
+      this.setState({'school': value})
+    }).done()
+    AsyncStorage.getItem('phone').then((value) => {
+      this.setState({'phone': value})
+    }).done()
+    AsyncStorage.getItem('email').then((value) => {
+      this.setState({'email': value})
+    }).done()
+    if (this.props.circles) {
+      Alert.alert(this.props.circles[0])
+    }
+
   }
 
-  saveData(value) {
-    AsyncStorage.setItem('name', JSON.stringify('name': value));
-    this.setState({'name': value});
+  saveData(key, value) {
+    // Alert.alert(name)
+    AsyncStorage.setItem(key, value);
+    this.setState({[key]: value});
+  }
+
+  onClearCircles() {
+    AsyncStorage.setItem('circles', '[]').then(() => {
+      this.setState({circles:[]})
+    })
   }
 
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467', height: 600}}>
+        <View>
+          <Button
+            onPress={this.onClearCircles.bind(this)}
+          >Clear circles
+          </Button>
+        </View>
        <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
 
           <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40, width:300}}>We just need a couple things to get you registered for the giveaways!</Text>
@@ -38,11 +64,11 @@ export default class ProfilePage extends Component {
           <TextInput
             keyboardType='default'
             style={styles.profileInput}
-            // value={this.state.name}
+            value={this.state.name}
             placeholderTextColor='#88B467'
             placeholder="Name"
             returnKeyType="next"
-            onChangeText={name => this.saveData({name})}
+            onChangeText={name => this.saveData('name', name)}
             onSubmitEditing={(event) => {
               this.refs.SecondInput.focus();
             }}
@@ -57,7 +83,7 @@ export default class ProfilePage extends Component {
             placeholderTextColor='#88B467'
             placeholder="School"
             returnKeyType='next'
-            onChangeText={school => this.saveData({school})}
+            onChangeText={school => this.saveData('school', school)}
             onSubmitEditing={(event) => {
               this.refs.ThirdInput.focus();
             }}
@@ -72,7 +98,7 @@ export default class ProfilePage extends Component {
             placeholderTextColor='#88B467'
             placeholder="Phone"
             returnKeyType='next'
-            onChangeText={phone => this.saveData({phone})}
+            onChangeText={phone => this.saveData('phone', phone)}
             onSubmitEditing={(event) => {
               this.refs.FourthInput.focus();
             }}
@@ -86,7 +112,7 @@ export default class ProfilePage extends Component {
             value={this.state.email}
             placeholderTextColor='#88B467'
             placeholder="Email"
-            onChangeText={email => this.saveData({email})}
+            onChangeText={email => this.saveData('email', email)}
             returnKeyType='done'
           />
         </View>

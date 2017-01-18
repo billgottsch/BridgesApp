@@ -34,7 +34,7 @@ const businessPurple = [
 ]
 
 const businessYellow = [
-  {name:'Brained Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39', logo:'https://www.explorebrainerdlakes.com/wp-content/uploads/2014/12/BLC_RGB_LG.jpg'},
+  {name:'Brained Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39', logo:'http://www.explorebrainerdlakes.com/wp-content/uploads/2014/12/BLC_RGB_LG.jpg'},
   {name:'Brained Park and Recreation', address:'1619 Washington St NE', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 828-2320', color:'#F2EB39'},
   {name:'Breezy Point Resort', address:'9252 Breezy Point Drive', city:'Breezy Point', state:'MN', zip:'56472', phone:'1-800-432-3777', color:'#F2EB39'},
   {name:'Bremer Bank', address:'321 South 7th Street', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-8781', color:'#F2EB39'},
