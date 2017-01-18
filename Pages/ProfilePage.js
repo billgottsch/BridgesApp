@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
 import { AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import Button from 'react-native-button';
-import { Router, Scene, Actions } from 'react-native-router-flux';
 
-
-import FAIcon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
-
 
 export default class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state ={
-      newItemValue:'',
-      entry: {
-        name:'',
-        school:'',
-        phone:'',
-        email:'',
-      }
+      name:'',
+      school:'',
+      phone:'',
+      email:'',
     }
   }
 
-  onStudentDataChange() {
-
+  componentDidMount(value) {
+    AsyncStorage.getItem('name').then((value) => {
+      this.setState({'name': value})
+    }).done()
   }
 
-  onInputSubmit(e) {
-    return (<View><Text>Thanks!</Text></View>)
+  saveData(value) {
+    AsyncStorage.setItem('name', JSON.stringify('name': value));
+    this.setState({'name': value});
   }
+
   render() {
     return(
       <ScrollView style={{backgroundColor:'#88B467', height: 600}}>
-        <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
+       <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
 
           <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, margin:40, width:300}}>We just need a couple things to get you registered for the giveaways!</Text>
         </View>
@@ -40,11 +38,11 @@ export default class ProfilePage extends Component {
           <TextInput
             keyboardType='default'
             style={styles.profileInput}
-            // value={this.state.entry.name}
+            // value={this.state.name}
             placeholderTextColor='#88B467'
             placeholder="Name"
             returnKeyType="next"
-            onChangeText={name => this.setState({name})}
+            onChangeText={name => this.saveData({name})}
             onSubmitEditing={(event) => {
               this.refs.SecondInput.focus();
             }}
@@ -55,10 +53,11 @@ export default class ProfilePage extends Component {
             ref="SecondInput"
             keyboardType='default'
             style={styles.profileInput}
-            // value={this.state.entry.school}
+            value={this.state.school}
             placeholderTextColor='#88B467'
             placeholder="School"
             returnKeyType='next'
+            onChangeText={school => this.saveData({school})}
             onSubmitEditing={(event) => {
               this.refs.ThirdInput.focus();
             }}
@@ -69,10 +68,11 @@ export default class ProfilePage extends Component {
             ref="ThirdInput"
             keyboardType='numbers-and-punctuation'
             style={styles.profileInput}
-            // value={this.state.entry.phone}
+            value={this.state.phone}
             placeholderTextColor='#88B467'
             placeholder="Phone"
             returnKeyType='next'
+            onChangeText={phone => this.saveData({phone})}
             onSubmitEditing={(event) => {
               this.refs.FourthInput.focus();
             }}
@@ -83,9 +83,10 @@ export default class ProfilePage extends Component {
             ref="FourthInput"
             keyboardType='email-address'
             style={styles.profileInput}
-            // value={this.state.entry.email}
+            value={this.state.email}
             placeholderTextColor='#88B467'
             placeholder="Email"
+            onChangeText={email => this.saveData({email})}
             returnKeyType='done'
           />
         </View>
@@ -94,7 +95,8 @@ export default class ProfilePage extends Component {
             containerStyle={{backgroundColor:'#43781C', padding:10, width:180, marginTop:10 }}
             style={{fontSize: 14, color: 'white'}}
             styleDisabled={{color: 'red'}}
-            onPress={this.onInputSubmit.bind(this)}>
+            onPress={this.saveData.bind(this)}
+            >
             Lets get to exploring!
           </Button>
         </View>

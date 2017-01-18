@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, TouchableOpacity, Modal, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
-import { Router, Scene, Actions } from 'react-native-router-flux';
 import HideableView from 'react-native-hideable-view';
 
 import StatusBarBackground from './StatusBarBackground';
@@ -189,11 +188,11 @@ this.setState({
   })
 }
 
-toggleBlack(e) {
-this.setState({
-    visible7: !this.state.visible7
-  })
-}
+// toggleBlack(e) {
+// this.setState({
+//     visible7: !this.state.visible7
+//   })
+// }
 
 toggle11(e) {
 this.setState({
@@ -220,7 +219,7 @@ render() {
           <TouchableOpacity onPress={() => {
               this.setModalVisible(!this.state.modalVisible)
           }}>
-            <Text><FAIcon name='window-close-o' size={20} style={{padding:20}}></FAIcon></Text>
+            <Text><FAIcon name='window-close-o' size={20} style={{padding:20, marginTop:2}}></FAIcon></Text>
           </TouchableOpacity>
           <View>
             {/* <Image
@@ -228,7 +227,7 @@ render() {
             /> */}
           </View>
           <View>
-            {/* <Text style={{width:376, height:60, textAlign:'center'}}></Text> */}
+            <Text style={{width:376, height:40, textAlign:'center'}}></Text>
             <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center', backgroundColor: this.state.modalCareer.color}}>{this.state.modalCareer.title}</Text>
             <Text>{"\n"}</Text>
             <Text style={styles.modalName}>What kind of schooling do I need? {"\n"}</Text>
@@ -454,7 +453,7 @@ render() {
                         </View>)
               })}
             </HideableView>
-            <View>
+            {/* <View>
               <TouchableOpacity onPress={this.toggleBlack.bind(this)}>
                   <Text
                     style={{
@@ -491,7 +490,7 @@ render() {
                           </View>)
                 })}
               </HideableView>
-            </View>
+            </View> */}
           </View>
           <View style={{ marginBottom:150,}}>
         </View>

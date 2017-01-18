@@ -265,7 +265,7 @@ export default class BusinessesPage extends Component {
           <Text><FAIcon name='window-close-o' size={20} style={{padding:20}}></FAIcon></Text>
         </TouchableOpacity>
         <View style={{justifyContent:'center'}}>
-          <Text style={{width:376, height:60, textAlign:'center'}}></Text>
+          <Text style={{width:376, height:40, textAlign:'center'}}></Text>
           <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center',backgroundColor:this.state.modalBusiness.color}}>{this.state.modalBusiness.name}</Text>
           <View>
             <Image
@@ -291,26 +291,27 @@ export default class BusinessesPage extends Component {
 
 
           <TouchableOpacity onPress={this.togglePurple.bind(this)}>
-            <Text
-              style={{
-              backgroundColor:'#CB3795',
-              marginLeft:20,
-              marginRight:20,
-              marginTop:5,
-              padding: 20,
-              textAlign:'center',
-              fontSize:18,
-              borderColor:'#43781c',
-              borderWidth:1,
-              shadowColor: '#43781c',
-              shadowRadius:1,
-              shadowOpacity:1,
-              shadowOffset: {
-                width: 1,
-                height: 1,
-              },}}>
-              Computer and IT
-            </Text>
+            <View style={styles.homepageTextWrapper}>
+              <View style={{
+                  paddingTop:20,
+                  flexDirection:'column',
+                  paddingBottom:20,
+                  flex:1,
+                  margin:0,
+                  justifyContent:'center',
+                  alignItems:'center',
+                  borderWidth:5,
+                  borderColor:'#CB3795',
+                  borderStyle:'solid',
+                  backgroundColor:'#CB3795',
+                  borderTopRightRadius: 55,
+                  borderBottomRightRadius: 55,
+                }}>
+                <Text style={styles.homepageTextTime}>
+                </Text>
+              </View>
+              <Text style={styles.homepageTextTitle}>Computer and IT</Text>
+            </View>
           </TouchableOpacity>
 
           <HideableView

@@ -3,7 +3,6 @@ import { Alert, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollVie
 import StatusBarBackground from './StatusBarBackground';
 import styles from './Styles';
 import exitMap from './ExitDoorMap.jpg';
-import SearchBar from './SearchBar';
 
 const allSchools = [
   {name:'Aitkin', arrival:'9:15am', departure:'12pm', door:'South'},
@@ -80,7 +79,7 @@ export default class BusSchedule extends Component {
           <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
             <Text style={styles.schoolListTitle}>School  -  Arrival  -  Departure  -  Exit Door</Text>
             {this.state.schools.map((school, index) =>{
-              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold'}}>{school.name}</Text>: {school.arrival} - {school.departure} - {school.door}</Text></View>)
+              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold'}}>{school.name}</Text>: {school.arrival} - <Text style={{fontWeight:'bold'}}>{school.departure}</Text> {school.door}</Text></View>)
             })}
           </View>
             <View style={{ marginBottom:130,}}>

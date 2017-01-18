@@ -13,7 +13,7 @@ export default class AddCode extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      page:'AddCode',
+      initialText:'',
       codeText:'',
       circles:[],
       clusters:[
@@ -37,15 +37,11 @@ export default class AddCode extends Component {
       this.setState({circles:newCircles})
     }
   }
-  //
-  // onCompletedCodes() {
-  //   if (this.state.circles.length === this.state.clusters.length) {
-  //     return switch (this.state.page) {
-  //             case 'ProfilePage':
-  //               return <View><ProfilePage /></View>;
-  //             }
+
+  // clearText(codeInput) {
+  //     this.refs[codeInput].setNativeProps({text: ''});
   //   }
-  // };
+
 
   render() {
     return(
@@ -59,6 +55,7 @@ export default class AddCode extends Component {
           <TextInput
             autoCapitalize="none"
             spellCheck= 'false'
+            defaultValue={this.state.initialText}
             keyboardType='default'
             style={styles.inputSearch}
             placeholderTextColor='#88B467'
@@ -90,7 +87,6 @@ export default class AddCode extends Component {
         <View>
           <Text style={{textAlign:'center', marginTop:20, marginBottom:20, fontWeight:'bold'}}> {this.state.circles.length}/{this.state.clusters.length} codes filled. {"\n"} Keep exploring!</Text>
         </View>
-        {/* {this.onCompletedCodes()} */}
       </ScrollView>
     )
   }

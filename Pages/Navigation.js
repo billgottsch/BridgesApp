@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { AppRegistry, Image, Text, View, StyleSheet, ScrollView } from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
 import Tabs from 'react-native-tabs';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -14,7 +13,6 @@ import BusSchedule from './BusSchedule';
 import AddCode from './AddCode';
 import ListofCareers from './ListofCareers';
 import BusinessesPage from './BusinessesPage';
-import OneBusiness from './OneBusiness';
 import ProfilePage from './ProfilePage';
 import CareersPage from './CareersPage';
 import ListOfBusinesses from './ListOfBusinesses';
@@ -24,7 +22,7 @@ export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'HomePage',
+      page:'ProfilePage',
     };
   }
   renderPage() {
@@ -45,7 +43,7 @@ export default class Navigation extends Component {
         return <View><AddCode /></View>;
 
       default:
-        return <View><HomePage /></View>;
+        return <View><ProfilePage /></View>;
       }
     };
 
