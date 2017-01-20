@@ -8,6 +8,7 @@ import FAIcon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
 import Tabs from 'react-native-tabs';
 import StatusBarBackground from './StatusBarBackground';
+import Autolink from 'react-native-autolink';
 
 import Navigation from './Navigation';
 import ListOfBusinesses from './ListOfBusinesses';
@@ -34,8 +35,8 @@ const businessPurple = [
 ]
 
 const businessYellow = [
-  {name:'Brained Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39', logo:'http://www.explorebrainerdlakes.com/wp-content/uploads/2014/12/BLC_RGB_LG.jpg'},
-  {name:'Brained Park and Recreation', address:'1619 Washington St NE', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 828-2320', color:'#F2EB39'},
+  {name:'Brainerd Lakes Chamber of Commerce', address:'224 W Washington St', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-2838', color:'#F2EB39', logo:''},
+  {name:'Brainerd Park and Recreation', address:'1619 Washington St NE', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 828-2320', color:'#F2EB39'},
   {name:'Breezy Point Resort', address:'9252 Breezy Point Drive', city:'Breezy Point', state:'MN', zip:'56472', phone:'1-800-432-3777', color:'#F2EB39'},
   {name:'Bremer Bank', address:'321 South 7th Street', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 829-8781', color:'#F2EB39'},
   {name:'CLC - Accounting', address:'501 W College Dr', city:'Brainerd', state:'MN', zip:'56401', phone:'(218) 855-8000', color:'#F2EB39'},
@@ -177,17 +178,42 @@ const businessBlue = [
 
 ]
 
+var clusterStyle = {
+  paddingTop:10,
+  flexDirection:'column',
+  paddingBottom:10,
+  margin:0,
+  width:36,
+  justifyContent:'center',
+  alignItems:'center',
+  borderWidth:1,
+  borderStyle:'solid',
+  borderTopRightRadius: 35,
+  borderBottomRightRadius: 35,
+  borderTopLeftRadius:35,
+  borderBottomLeftRadius: 35,
+}
+
+var clusterBusinessStyle = {
+  paddingTop:10,
+  flexDirection:'column-reverse',
+  paddingBottom:10,
+  width: 22,
+  margin:0,
+  justifyContent:'center',
+  alignItems:'center',
+  borderWidth:1,
+  borderStyle:'solid',
+  borderTopRightRadius: 35,
+  borderBottomRightRadius: 35,
+  borderTopLeftRadius:35,
+  borderBottomLeftRadius: 35,
+}
+
 export default class BusinessesPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visiblePurple: false,
-      visibleRed: false,
-      visibleYellow: false,
-      visibleOrange: false,
-      visibleGreen: false,
-      visibleBlue: false,
-      visibleBlack: false,
       modalVisible: false,
       modalBusiness: {color:'white'},
       businessPurple: businessPurple,
@@ -200,46 +226,14 @@ export default class BusinessesPage extends Component {
     };
   }
 
-  togglePurple(e) {
-    this.setState({
-        visiblePurple: !this.state.visiblePurple
-      })
-  }
+  toggleCluster(color) {
 
-  toggleRed(e) {
-    this.setState({
-        visibleRed: !this.state.visibleRed
-      })
-  }
+    if (this.state.visibleCluster === color) {
+      this.setState({visibleCluster: null})
 
-  toggleYellow(e) {
-    this.setState({
-        visibleYellow: !this.state.visibleYellow
-      })
-  }
-
-  toggleOrange(e) {
-    this.setState({
-        visibleOrange: !this.state.visibleOrange
-      })
-  }
-
-  toggleGreen(e) {
-    this.setState({
-        visibleGreen: !this.state.visibleGreen
-      })
-  }
-
-  toggleBlue(e) {
-    this.setState({
-        visibleBlue: !this.state.visibleBlue
-      })
-  }
-
-  toggleBlack(e) {
-    this.setState({
-        visibleBlack: !this.state.visibleBlack
-      })
+    } else {
+      this.setState({visibleCluster: color})
+    }
   }
 
   setModalVisible(visible, business) {
@@ -254,289 +248,255 @@ export default class BusinessesPage extends Component {
       <ScrollView style={{backgroundColor:'#88B467'}}>
 
       {this.state.modalVisible ? <Modal
-        animationType={"slide"}
-        transparent={false}
-        visible={this.state.modalVisible}
-      >
-        <StatusBarBackground />
-        <TouchableOpacity onPress={() => {
-            this.setModalVisible(!this.state.modalVisible)
-        }}>
-          <Text><FAIcon name='window-close-o' size={20} style={{padding:20}}></FAIcon></Text>
-        </TouchableOpacity>
-        <View style={{justifyContent:'center'}}>
-          <Text style={{width:376, height:40, textAlign:'center'}}></Text>
-          <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center',backgroundColor:this.state.modalBusiness.color}}>{this.state.modalBusiness.name}</Text>
-          <View>
-            <Image
-              style={{width: 50, height: 50}}
-              source={{uri:this.state.modalBusiness.logo}}
-            />
+          animationType={"slide"}
+          transparent={false}
+          visible={this.state.modalVisible}>
+
+          {/* <StatusBarBackground /> */}
+          <View style={{justifyContent:'center'}}>
+            <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center',marginBottom:10, paddingTop:20,backgroundColor:this.state.modalBusiness.color}}>{this.state.modalBusiness.name}</Text>
+            <View>
+              <TouchableOpacity onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible)
+              }}>
+              <FAIcon key='first' type='icon' name='times' size={20}/>
+              </TouchableOpacity>
+            </View>
+            <Image style={{alignSelf:'center', marginBottom:60, marginTop:30}} source={require('BridgesApp/assets/chamber-logo.png')}></Image>
+            <View>
+              <FAIcon key='first' type='icon' name='globe' size={20}/>
+              <Text style={styles.modalName}>Address</Text>
+              <Text style={styles.modalData}>{this.state.modalBusiness.address}{"\n"}{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
+            </View>
+            <View>
+              <FAIcon key='first't ype='icon' name='mobile' size={20}/>
+              <Autolink
+                style={styles.modalData}
+                text= {this.state.modalBusiness.phone}/>
+              <Text style={styles.modalName}>Give them a call!</Text>
+            </View>
+
           </View>
-          <Text>{"\n"}</Text>
-          <Text style={styles.modalName}>Address {"\n"}</Text>
-          <Text style={styles.modalData}>{this.state.modalBusiness.address}{"\n"}{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
-          <Text></Text>
-          <Text style={styles.modalName}>Give them a call!{"\n"}</Text>
-          <Text style={styles.modalData}>{this.state.modalBusiness.phone}</Text>
-          <Text>{"\n"}</Text>
-
-        </View>
-      </Modal> : null }
+        </Modal> : null }
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>
-          Did you find a business you liked? Check out more info here!
+          Did you find a business you liked? Click below for more info!
         </Text>
-        <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
-        <View>
+        <View style={{marginTop:10 ,justifyContent:'center'}}>
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'purple')}>
+              <View style={[clusterStyle,{
+                backgroundColor:'#CB3795',
+                borderColor:'#CB3795',
+              }]}>
 
-
-          <TouchableOpacity onPress={this.togglePurple.bind(this)}>
-            <View style={styles.homepageTextWrapper}>
-              <View style={{
-                  paddingTop:20,
-                  flexDirection:'column',
-                  paddingBottom:20,
-                  flex:1,
-                  margin:0,
-                  justifyContent:'center',
-                  alignItems:'center',
-                  borderWidth:5,
-                  borderColor:'#CB3795',
-                  borderStyle:'solid',
-                  backgroundColor:'#CB3795',
-                  borderTopRightRadius: 55,
-                  borderBottomRightRadius: 55,
-                }}>
-                <Text style={styles.homepageTextTime}>
+                <Text style={styles.businessPageColorBox}>
                 </Text>
               </View>
-              <Text style={styles.homepageTextTitle}>Computer and IT</Text>
-            </View>
+              <Text style={styles.businessPageTextTitle}>Computer and IT</Text>
           </TouchableOpacity>
 
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visiblePurple}>
+            visible={this.state.visibleCluster === 'purple'}>
               {this.state.businessPurple.map((business, index) =>{
                 return (
-                  <View key={index}>
-                    <TouchableOpacity onPress={() => {
-                       this.setModalVisible(true, business)
-                    }}>
-                      <Text style={styles.businessPurple} key={index}>{business.name}</Text>
-                    </TouchableOpacity>
-                </View>)
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, business)
+                      }}>
+                      <View style={[clusterBusinessStyle,{
+                        borderColor:'#CB3795',
+                        backgroundColor:'#CB3795',
+                      }]} >
+                      </View>
+                        <Text style={styles.businessNames}>{business.name}</Text>
+                      </TouchableOpacity>
+                    </View>)
               })}
           </HideableView>
-        </View>
 
-          <TouchableOpacity onPress={this.toggleRed.bind(this)}>
-              <Text style={{backgroundColor:'#EA2430',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:10,
-                padding: 20,
-                textAlign:'center',
-                fontSize:18,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Health Services
-              </Text>
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'red')}>
+            <View style={[clusterStyle,{
+                  borderColor:'#EA2430',
+                  backgroundColor:'#EA2430',
+                }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Health Services</Text>
           </TouchableOpacity>
           <HideableView
             removeWhenHidden={true}
-            visible={this.state.visibleRed}>
+            visible={this.state.visibleCluster === 'red'}>
             {this.state.businessRed.map((business, index) =>{
-              return (<View key={index}>
-                        <TouchableOpacity onPress={() => {
-                           this.setModalVisible(true, business)
-                        }}>
-                          <Text style={styles.businessRed} key={index}>{business.name}</Text>
-                        </TouchableOpacity>
-                      </View>)
+              return (
+                  <View key={index}>
+                    <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                    <View style={[clusterBusinessStyle,{
+                      borderColor:'#EA2430',
+                      backgroundColor:'#EA2430',
+                    }]} >
+                    </View>
+                      <Text style={styles.businessNames}>{business.name}</Text>
+                    </TouchableOpacity>
+                  </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggleYellow.bind(this)}>
-            <Text style={{backgroundColor:'#F2EB39',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:10,
-                padding: 15,
-                textAlign:'center',
-                fontSize:18,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Business, Finance and Hospitality
-            </Text>
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'yellow')}>
+            <View style={[clusterStyle,{
+                borderColor:'#F2EB39',
+                backgroundColor:'#F2EB39',
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Business, Finance and Hospitality</Text>
           </TouchableOpacity>
           <HideableView
-              removeWhenHidden={true}
-              visible={this.state.visibleYellow}>
+            removeWhenHidden={true}
+            visible={this.state.visibleCluster === 'yellow'}>
             {this.state.businessYellow.map((business, index) =>{
-              return (<View key={index}>
-                        <TouchableOpacity onPress={() => {
-                           this.setModalVisible(true, business)
-                        }}>
-                          <Text style={styles.businessYellow} key={index}>{business.name}</Text>
-                        </TouchableOpacity>
-                      </View>)
+              return (
+                  <View key={index}>
+                    <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                    <View style={[clusterBusinessStyle,{
+                      borderColor:'#F2EB39',
+                      backgroundColor:'#F2EB39',
+                    }]} >
+                    </View>
+                      <Text style={styles.businessNames}>{business.name}</Text>
+                    </TouchableOpacity>
+                  </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggleOrange.bind(this)}>
-              <Text style={{
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'orange')}>
+            <View style={[clusterStyle,{
+                borderColor:'#F79835',
                 backgroundColor:'#F79835',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:10,
-                padding: 15,
-                textAlign:'center',
-                fontSize:18,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Engineering, Const., Manuf., Automotive/Heavy Equipment
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>
+                Engineering, Const., Manuf., Automotive
               </Text>
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visibleOrange}>
+              visible={this.state.visibleCluster === 'orange'}>
             {this.state.businessOrange.map((business, index) =>{
-              return (<View key={index}>
-                        <TouchableOpacity onPress={() => {
-                           this.setModalVisible(true, business)
-                        }}>
-                          <Text style={styles.businessOrange} key={index}>{business.name}</Text>
-                        </TouchableOpacity>
-                      </View>)
+              return (
+                  <View key={index}>
+                    <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                    <View style={[clusterBusinessStyle,{
+                      borderColor:'#F79835',
+                      backgroundColor:'#F79835',
+                    }]} >
+                      <Text style={styles.businessPageColorBox}></Text>
+                    </View>
+                      <Text style={styles.businessNames}>{business.name}</Text>
+                    </TouchableOpacity>
+                  </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggleGreen.bind(this)}>
-              <Text style={{
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'green')}>
+            <View style={[clusterStyle,{
+                borderColor:'#57B74F',
                 backgroundColor:'#57B74F',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:10,
-                padding: 12,
-                textAlign:'center',
-                fontSize:20,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Ag. Food and Natural Resources
+              }]}>
+              <Text style={styles.businessPageColorBox}>
               </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Ag. Food and Natural Resources</Text>
           </TouchableOpacity>
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visibleGreen}>
+              visible={this.state.visibleCluster === 'green'}>
             {this.state.businessGreen.map((business, index) =>{
-              return (<View key={index}>
-                        <TouchableOpacity onPress={() => {
-                           this.setModalVisible(true, business)
-                        }}>
-                          <Text style={styles.businessGreen} key={index}>{business.name}</Text>
-                        </TouchableOpacity>
-                      </View>)
+              return (
+                  <View key={index}>
+                    <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                    <View style={[clusterBusinessStyle,{
+                      borderColor:'#57B74F',
+                      backgroundColor:'#57B74F',
+                    }]} >
+                      <Text style={styles.businessPageColorBox}></Text>
+                    </View>
+                      <Text style={styles.businessNames}>{business.name}</Text>
+                    </TouchableOpacity>
+                  </View>)
             })}
           </HideableView>
 
-          <TouchableOpacity onPress={this.toggleBlue.bind(this)}>
-              <Text style={{
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'blue')}>
+            <View style={[clusterStyle,{
+                borderColor:'#6DCCEF',
                 backgroundColor:'#6DCCEF',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:10,
-                padding: 20,
-                textAlign:'center',
-                fontSize:20,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Public Safety
-              </Text>
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Public Safety</Text>
           </TouchableOpacity>
+
           <HideableView
               removeWhenHidden={true}
-              visible={this.state.visibleBlue}>
+              visible={this.state.visibleCluster === 'blue'}>
             {this.state.businessBlue.map((business, index) =>{
-              return (<View key={index}>
-                        <TouchableOpacity onPress={() => {
-                           this.setModalVisible(true, business)
-                        }}>
-                          <Text style={styles.businessBlue} key={index}>{business.name}</Text>
-                        </TouchableOpacity>
-                      </View>)
+              return (
+                  <View key={index}>
+                    <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                       this.setModalVisible(true, business)
+                    }}>
+                    <View style={[clusterBusinessStyle,{
+                      borderColor:'#6DCCEF',
+                      backgroundColor:'#6DCCEF',
+                    }]} >
+                      <Text style={styles.businessPageColorBox}></Text>
+                    </View>
+                      <Text style={styles.businessNames}>{business.name}</Text>
+                    </TouchableOpacity>
+                  </View>)
             })}
           </HideableView>
           <View>
-            <TouchableOpacity onPress={this.toggleBlack.bind(this)}>
-                <Text
-                  style={{
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'black')}>
+              <View style={[clusterStyle,{
+                  borderColor:'#231F20',
                   backgroundColor:'#231F20',
-                  color:'white',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:20,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Liberal Arts
-                </Text>
+                  }]}>
+                  <Text style={styles.businessPageColorBox}>
+                  </Text>
+                </View>
+                <Text style={styles.businessPageTextTitle}>Liberal Arts</Text>
             </TouchableOpacity>
             <HideableView
                 removeWhenHidden={true}
-                visible={this.state.visibleBlack}>
+                visible={this.state.visibleCluster === 'black'}>
               {this.state.businessBlack.map((business, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, business)
-                          }}>
-                            <Text style={styles.businessBlack} key={index}>{business.name}</Text>
-                          </TouchableOpacity>
-                        </View>)
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, business)
+                      }}>
+                      <View style={[clusterBusinessStyle,{
+                        borderColor:'#231F20',
+                        backgroundColor:'#231F20',
+                      }]} >
+                      </View>
+                        <Text style={styles.businessNames}>{business.name}</Text>
+                      </TouchableOpacity>
+                    </View>)
               })}
             </HideableView>
           </View>

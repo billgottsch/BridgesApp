@@ -38,6 +38,11 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:'#fff',
   },
+
+  /* -----HOMEPAGE STYLING----- */
+  /* -----HOMEPAGE STYLING----- */
+  /* -----HOMEPAGE STYLING----- */
+
   homepageContent: {
     backgroundColor: '#88B467',
     padding: 0,
@@ -86,6 +91,13 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection:'row',
     justifyContent:'center',
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,  },
+
   },
 
   homepageTextTime: {
@@ -120,10 +132,77 @@ const styles = StyleSheet.create({
     width: 374,
   },
 
-  schoolList: {
-    fontSize: 13,
+  /* -----BUSINESSPAGE STYLING----- */
+  /* -----BUSINESSPAGE STYLING----- */
+  /* -----BUSINESSPAGE STYLING----- */
+  /* -----BUSINESSPAGE STYLING----- */
+
+  businessPageTextWrapper: {
+    backgroundColor:'#BAD0AB',
+    // marginTop:5,
+    padding:10,
+    borderBottomWidth:1,
+    borderBottomColor:'#43781c',
+    alignItems:'center',
+    flexDirection:'row',
+    justifyContent:'center',
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,  },
+  },
+
+  businessWrapper: {
+    flex:1,
+    padding:15,
+    backgroundColor:'#BAD0AB',
+    marginLeft: 50,
+    // marginRight:70,
+    // marginTop:5]\\,
+    borderBottomWidth:1,
+    borderBottomColor:'#43781c',
+    alignItems:'center',
+    flexDirection:'row',
+    justifyContent:'center',
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,  },
+  },
+
+  businessPageTextTitle: {
+    fontFamily:'Helvetica',
+    fontSize: 18,
+    fontWeight: 'bold',
+    flex:3,
+    marginLeft:40,
+    marginRight:5,
+  },
+
+  businessNames: {
+    fontFamily:'Helvetica',
+    fontSize: 15,
+    fontWeight: 'bold',
+    flex:3,
+    marginLeft:30,
+    marginRight:5,
+  },
+
+  businessPageTextData: {
+    flex:3,
+    fontWeight:'normal',
+    fontFamily:'Helvetica',
+    fontSize:13,
+  },
+
+  businessesList: {
+    fontSize: 12,
     marginTop:5,
-    // flex:1,
+    flex:1,
     flexDirection:'row',
     justifyContent:'space-around',
     textAlign:'center',
@@ -140,126 +219,24 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  businessPurple: {
-    backgroundColor:'#CB3795',
-      marginLeft:50,
-      marginRight:50,
-      marginTop:10,
-      padding: 5,
-      textAlign:'center',
-      fontSize:14,
-      borderColor:'#43781c',
-      borderWidth:1,
-      shadowColor: '#43781c',
-      shadowRadius:1,
-      shadowOpacity:1,
-      shadowOffset: {
-        width: 1,
-        height: 1,  },
-  },
-  businessYellow: {
-    backgroundColor:'#F2EB39',
-    marginLeft:50,
-    marginRight:50,
+  businessListTitle: {
+    fontSize: 14,
     marginTop:5,
     padding: 10,
-    textAlign:'center',
-    fontSize:14,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,  },
+    fontWeight: 'bold',
+    backgroundColor:'#BAD0AB',
+    flex:1,
+    textAlign: 'center',
+    borderWidth: 1,
+    // justifyContent:'space-around',
   },
-  businessGreen: {
-    backgroundColor:'#57B74F',
-      marginLeft:50,
-      marginRight:50,
-      marginTop:10,
-      padding: 5,
-      textAlign:'center',
-      fontSize:14,
-      borderColor:'#43781c',
-      borderWidth:1,
-      shadowColor: '#43781c',
-      shadowRadius:1,
-      shadowOpacity:1,
-      shadowOffset: {
-        width: 1,
-        height: 1,  },
-  },
-  businessOrange: {
-    backgroundColor:'#F79835',
-    marginLeft:50,
-    marginRight:50,
-    marginTop:10,
-    padding: 5,
-    textAlign:'center',
-    fontSize:14,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,  },
-  },
-  businessBlue: {
-    backgroundColor:'#6DCCEF',
-    marginLeft:50,
-    marginRight:50,
-    marginTop:10,
-    padding: 5,
-    textAlign:'center',
-    fontSize:14,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,  },
-  },
-  businessRed: {
-    backgroundColor:'#EA2430',
-    marginLeft:50,
-    marginRight:50,
-    marginTop:10,
-    padding: 5,
-    textAlign:'center',
-    fontSize:14,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,  },
-  },
-  businessBlack: {
-    backgroundColor:'#231F20',
-    color:'white',
-    marginLeft:50,
-    marginRight:50,
-    marginTop:10,
-    padding: 5,
-    textAlign:'center',
-    fontSize:14,
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,  },
-  },
+
+
+  /* -----BUSPAGE STYLING----- */
+  /* -----BUSPAGE STYLING----- */
+  /* -----BUSPAGE STYLING----- */
+  /* -----BUSPAGE STYLING----- */
+
   schoolListTitle: {
     fontSize: 16,
     marginTop:20,
@@ -271,10 +248,36 @@ const styles = StyleSheet.create({
     // justifyContent:'space-around',
   },
 
-  exitMap: {
-    width:374,
-    height: 280,
+  schoolList: {
+    fontSize: 13,
+    marginTop:5,
+    // flex:1,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    textAlign:'center',
+    borderColor:'#43781c',
+    borderWidth:1,
+    shadowColor: '#43781c',
+    shadowRadius:1,
+    shadowOpacity:1,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    backgroundColor:'#BAD0AB',
+    padding: 10,
   },
+
+  exitMap: {
+    width:360,
+    height: 280,
+    margin:0,
+  },
+
+  /* -----NAVPAGE STYLING----- */
+  /* -----NAVPAGE STYLING----- */
+  /* -----NAVPAGE STYLING----- */
+  /* -----NAVPAGE STYLING----- */
 
   navContent:{
     flexDirection:'row',
@@ -297,36 +300,11 @@ const styles = StyleSheet.create({
     color:'white',
   },
 
-  businessesList: {
-    fontSize: 12,
-    marginTop:5,
-    flex:1,
-    flexDirection:'row',
-    justifyContent:'space-around',
-    textAlign:'center',
-    borderColor:'#43781c',
-    borderWidth:1,
-    shadowColor: '#43781c',
-    shadowRadius:1,
-    shadowOpacity:1,
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    backgroundColor:'#BAD0AB',
-    padding: 10,
-  },
-  businessListTitle: {
-    fontSize: 14,
-    marginTop:5,
-    padding: 10,
-    fontWeight: 'bold',
-    backgroundColor:'#BAD0AB',
-    flex:1,
-    textAlign: 'center',
-    borderWidth: 1,
-    // justifyContent:'space-around',
-  },
+/*  ----- PROFILEPAGE STYLING  ----- */
+/*  ----- PROFILEPAGE STYLING  ----- */
+/*  ----- PROFILEPAGE STYLING  ----- */
+/*  ----- PROFILEPAGE STYLING  ----- */
+
   profileInput: {
     backgroundColor:'#fff',
     height: 40,
@@ -338,6 +316,12 @@ const styles = StyleSheet.create({
     fontSize:14,
   },
 
+
+  /*   MODAL STYLING   */
+  /*   MODAL STYLING   */
+  /*   MODAL STYLING   */
+  /*   MODAL STYLING   */
+
   modalTitle: {
     fontSize:16,
     fontWeight:'bold',
@@ -346,15 +330,16 @@ const styles = StyleSheet.create({
   },
 
   modalName:{
-    textAlign:'center',
     fontSize:18,
     fontWeight:'bold',
+    marginBottom:20
   },
 
   modalData: {
-    textAlign:'center',
+    fontSize:16,
     marginLeft: 10,
     marginRight: 10,
+    marginBottom:20,
   },
 
   modalPhone: {

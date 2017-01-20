@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -39,6 +40,7 @@
 		C71571AB1E0C5E4E0097D6FD /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C71571A21E0C5E4E0097D6FD /* SimpleLineIcons.ttf */; };
 		C71571AC1E0C5E4E0097D6FD /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C71571A31E0C5E4E0097D6FD /* Zocial.ttf */; };
 		C7197A42CA6544A89F9E4C49 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD5E5E5DD54F70A812D864 /* Foundation.ttf */; };
+		C77A71DF1E301C0100212309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		D2AA839D7B584F02A2FB3C9D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E79F4EC852E648AC90020D4C /* SimpleLineIcons.ttf */; };
 		D6B520BA320B4F82AAB52F97 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AD580A13DAE4176BAA6A59F /* MaterialIcons.ttf */; };
 		F968FFC7FDBF4E7B822A2033 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A23E3C9F4DC48619630BAFD /* Octicons.ttf */; };
@@ -825,6 +827,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77A71DF1E301C0100212309 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +964,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = BridgesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -978,6 +982,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = BridgesApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

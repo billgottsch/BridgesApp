@@ -126,21 +126,38 @@ const careerBlue = [
   {title:'Child, Family and School Social Worker', description:'Provide social services and assistance to improve the social and psychological functioning of children and their families and to maximize the family well-being and the academic functioning of children. May assist parents, arrange adoptions, and find foster homes for abandoned or abused children. In schools, they address such problems as teenage pregnancy, misbehavior, and truancy. May also advise teachers.', education:'Bachelor\'s degree', wages:'$21.19 to $36.69', color:'#6DCCEF'},
 
 ]
+var clusterStyle = {
+  paddingTop:15,
+  flexDirection:'column',
+  paddingBottom:15,
+  flex:1,
+  margin:0,
+  justifyContent:'center',
+  alignItems:'center',
+  borderWidth:5,
+  borderStyle:'solid',
+  borderTopRightRadius: 55,
+  borderBottomRightRadius: 55,
+}
 
+var clusterCareerStyle = {
+  paddingTop:5,
+  flexDirection:'column-reverse',
+  paddingBottom:5,
+  flex:1,
+  margin:0,
+  justifyContent:'center',
+  alignItems:'center',
+  borderWidth:5,
+  borderStyle:'solid',
+  borderTopLeftRadius: 55,
+  borderBottomLeftRadius: 55,
+}
 
 export default class ListofCareers extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visiblePurple: false,
-      visibleRed: false,
-      visibleYellow: false,
-      visibleOrange: false,
-      visibleGreen: false,
-      visibleBlue: false,
-      visibleBlack: false,
-      visible11: false,
-      modalVisible: false,
       modalCareer:{color:'white'},
 
       careerPurple: careerPurple,
@@ -152,60 +169,24 @@ export default class ListofCareers extends Component {
       careerBlue: careerBlue,
   };
 }
-togglePurple(e) {
-this.setState({
-    visiblePurple: !this.state.visiblePurple
-  })
-}
 
-toggleRed(e) {
-this.setState({
-    visibleRed: !this.state.visibleRed
-  })
-}
 
-toggleYellow(e) {
-this.setState({
-    visibleYellow: !this.state.visibleYellow
-  })
-}
+  toggleCluster(color) {
 
-toggleOrange(e) {
-this.setState({
-    visibleOrange: !this.state.visibleOrange
-  })
-}
+    if (this.state.visibleCluster === color) {
+      this.setState({visibleCluster: null})
 
-toggleGreen(e) {
-this.setState({
-    visibleGreen: !this.state.visibleGreen
-  })
-}
+    } else {
+      this.setState({visibleCluster: color})
+    }
+  }
 
-toggleBlue(e) {
-this.setState({
-    visibleBlue: !this.state.visibleBlue
-  })
-}
-
-// toggleBlack(e) {
-// this.setState({
-//     visible7: !this.state.visible7
-//   })
-// }
-
-toggle11(e) {
-this.setState({
-    visible11: !this.state.visible11
-  })
-}
-
-setModalVisible(visible, career) {
-  this.setState({
-    modalCareer: career,
-    modalVisible: visible,
-  });
-}
+  setModalVisible(visible, career) {
+    this.setState({
+      modalCareer: career,
+      modalVisible: visible,
+    });
+  }
 
 render() {
   return(
@@ -219,15 +200,9 @@ render() {
           <TouchableOpacity onPress={() => {
               this.setModalVisible(!this.state.modalVisible)
           }}>
-            <Text><FAIcon name='window-close-o' size={20} style={{padding:20, marginTop:2}}></FAIcon></Text>
+            <Text><FAIcon name='window-close' size={30} style={{padding:20, marginTop:2}}></FAIcon></Text>
           </TouchableOpacity>
           <View>
-            {/* <Image
-              source={{uri:this.state.modalBusiness.logo}}
-            /> */}
-          </View>
-          <View>
-            <Text style={{width:376, height:40, textAlign:'center'}}></Text>
             <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center', backgroundColor: this.state.modalCareer.color}}>{this.state.modalCareer.title}</Text>
             <Text>{"\n"}</Text>
             <Text style={styles.modalName}>What kind of schooling do I need? {"\n"}</Text>
@@ -239,258 +214,200 @@ render() {
             <Text style={styles.modalName}>Typical pay range(per hour):{"\n"}</Text>
             <Text style={styles.modalData}>{this.state.modalCareer.wages}</Text>
             <Text style={{marginTop:100, textAlign:'center', color: '#ccc'}}>powered by MN DEED</Text>
-
           </View>
+
         </Modal> : null }
+
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>Take a look at the careers represented today!</Text>
-        <View style={{flex:1, margin:20, marginTop:10 ,justifyContent:'center'}}>
-          <View>
-            <TouchableOpacity onPress={this.togglePurple.bind(this)}>
-              <Text
-                style={{
-                backgroundColor:'#CB3795',
-                marginLeft:20,
-                marginRight:20,
-                marginTop:5,
-                padding: 20,
-                textAlign:'center',
-                fontSize:18,
-                borderColor:'#43781c',
-                borderWidth:1,
-                shadowColor: '#43781c',
-                shadowRadius:1,
-                shadowOpacity:1,
-                shadowOffset: {
-                  width: 1,
-                  height: 1,
-                },}}>
-                Computer and IT
-              </Text>
-            </TouchableOpacity>
-            <HideableView
-              removeWhenHidden={true}
-              visible={this.state.visiblePurple}>
-                {this.state.careerPurple.map((career, index) =>{
-                  return (<View key={index}>
-                            <TouchableOpacity onPress={() => {
-                               this.setModalVisible(true, career)
-                            }}>
-                              <Text style={styles.businessPurple} key={index}>{career.title}</Text>
-                            </TouchableOpacity>
-                          </View>)
-                })}
-            </HideableView>
-          </View>
-            <TouchableOpacity onPress={this.toggleRed.bind(this)}>
-                <Text style={{backgroundColor:'#EA2430',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Health Services
-                </Text>
-            </TouchableOpacity>
-            <HideableView
-              removeWhenHidden={true}
-              visible={this.state.visibleRed}>
-              {this.state.careerRed.map((career, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, career)
-                          }}>
-                            <Text style={styles.businessRed} key={index}>{career.title}</Text>
-                          </TouchableOpacity>
-                        </View>)
-              })}
-            </HideableView>
+        <View style={{flex:1, marginTop:10 ,justifyContent:'center'}}>
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'purple')}>
+                <View style={[clusterStyle,{
+                  backgroundColor:'#CB3795',
+                  borderColor:'#CB3795',
+                }]}>
 
-            <TouchableOpacity onPress={this.toggleYellow.bind(this)}>
-              <Text style={{backgroundColor:'#F2EB39',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 15,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Business, Finance and Hospitality
-              </Text>
-            </TouchableOpacity>
-            <HideableView
-                removeWhenHidden={true}
-                visible={this.state.visibleYellow}>
-              {this.state.careerYellow.map((career, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, career)
-                          }}>
-                            <Text style={styles.businessYellow} key={index}>{career.title}</Text>
-                          </TouchableOpacity>
-                        </View>)
-              })}
-            </HideableView>
-
-            <TouchableOpacity onPress={this.toggleOrange.bind(this)}>
-                <Text style={{
-                  backgroundColor:'#F79835',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 15,
-                  textAlign:'center',
-                  fontSize:18,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Engineering, Const., Manuf., Automotive/Heavy Equipment
-                </Text>
-            </TouchableOpacity>
-            <HideableView
-                removeWhenHidden={true}
-                visible={this.state.visibleOrange}>
-              {this.state.careerOrange.map((career, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, career)
-                          }}>
-                            <Text style={styles.businessOrange} key={index}>{career.title}</Text>
-                          </TouchableOpacity>
-                        </View>)
-              })}
-            </HideableView>
-
-            <TouchableOpacity onPress={this.toggleGreen.bind(this)}>
-                <Text style={{
-                  backgroundColor:'#57B74F',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 12,
-                  textAlign:'center',
-                  fontSize:20,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Ag. Food and Natural Resources
-                </Text>
-            </TouchableOpacity>
-            <HideableView
-                removeWhenHidden={true}
-                visible={this.state.visibleGreen}>
-              {this.state.careerGreen.map((career, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, career)
-                          }}>
-                            <Text style={styles.businessGreen} key={index}>{career.title}</Text>
-                          </TouchableOpacity>
-                        </View>)
-              })}
-            </HideableView>
-
-            <TouchableOpacity onPress={this.toggleBlue.bind(this)}>
-                <Text style={{
-                  backgroundColor:'#6DCCEF',
-                  marginLeft:20,
-                  marginRight:20,
-                  marginTop:10,
-                  padding: 20,
-                  textAlign:'center',
-                  fontSize:20,
-                  borderColor:'#43781c',
-                  borderWidth:1,
-                  shadowColor: '#43781c',
-                  shadowRadius:1,
-                  shadowOpacity:1,
-                  shadowOffset: {
-                    width: 1,
-                    height: 1,
-                  },}}>
-                  Public Safety
-                </Text>
-            </TouchableOpacity>
-            <HideableView
-                removeWhenHidden={true}
-                visible={this.state.visibleBlue}>
-              {this.state.careerBlue.map((career, index) =>{
-                return (<View key={index}>
-                          <TouchableOpacity onPress={() => {
-                             this.setModalVisible(true, career)
-                          }}>
-                            <Text style={styles.businessBlue} key={index}>{career.title}</Text>
-                          </TouchableOpacity>
-                        </View>)
-              })}
-            </HideableView>
-            {/* <View>
-              <TouchableOpacity onPress={this.toggleBlack.bind(this)}>
-                  <Text
-                    style={{
-                    backgroundColor:'#231F20',
-                    color:'white',
-                    marginLeft:20,
-                    marginRight:20,
-                    marginTop:10,
-                    padding: 20,
-                    textAlign:'center',
-                    fontSize:20,
-                    borderColor:'#43781c',
-                    borderWidth:1,
-                    shadowColor: '#43781c',
-                    shadowRadius:1,
-                    shadowOpacity:1,
-                    shadowOffset: {
-                      width: 1,
-                      height: 1,
-                    },}}>
-                    Liberal Arts
+                  <Text style={styles.businessPageColorBox}>
                   </Text>
-              </TouchableOpacity>
-              <HideableView
-                  removeWhenHidden={true}
-                  visible={this.state.visibleBlack}>
-                {this.state.careerBlack.map((career, index) =>{
-                  return (<View key={index}>
-                            <TouchableOpacity onPress={() => {
-                               this.setModalVisible(true, career)
-                            }}>
-                              <Text style={styles.businessBlack} key={index}>{career.title}</Text>
-                            </TouchableOpacity>
-                          </View>)
+                </View>
+                <Text style={styles.businessPageTextTitle}>Computer and IT</Text>
+            </TouchableOpacity>
+            <HideableView
+              removeWhenHidden={true}
+              visible={this.state.visibleCluster === 'purple'}>
+                {this.state.careerPurple.map((career, index) =>{
+                  return (
+                      <View key={index}>
+                        <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                            this.setModalVisible(true, career)
+                        }}>
+                        <View style={[clusterCareerStyle,{
+                          borderColor:'#CB3795',
+                          backgroundColor:'#CB3795',
+                        }]} >
+                          <Text style={styles.businessPageColorBox}></Text>
+                        </View>
+                          <Text style={styles.businessNames}>{career.title}</Text>
+                        </TouchableOpacity>
+                      </View>)
                 })}
-              </HideableView>
-            </View> */}
+            </HideableView>
+          <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'red')}>
+            <View style={[clusterStyle,{
+              backgroundColor:'#EA2430',
+              borderColor:'#EA2430',
+            }]}>
+              <Text style={styles.businessPageColorBox}>
+              </Text>
+            </View>
+            <Text style={styles.businessPageTextTitle}>Health Services</Text>
+            </TouchableOpacity>
+            <HideableView
+              removeWhenHidden={true}
+              visible={this.state.visibleCluster === 'red'}>
+              {this.state.careerRed.map((career, index) =>{
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, career)
+                      }}>
+                      <View style={[clusterCareerStyle,{
+                        borderColor:'#EA2430',
+                        backgroundColor:'#EA2430',
+                      }]} >
+                        <Text style={styles.businessPageColorBox}></Text>
+                      </View>
+                        <Text style={styles.businessNames}>{career.title}</Text>
+                      </TouchableOpacity>
+                    </View>)
+              })}
+            </HideableView>
+
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'yellow')}>
+                <View style={[clusterStyle,{
+                  backgroundColor:'#F2EB39',
+                  borderColor:'#F2EB39',
+                }]}>
+                  <Text style={styles.businessPageColorBox}>
+                  </Text>
+                </View>
+                <Text style={styles.businessPageTextTitle}>Business, Finance and Hospitality</Text>
+            </TouchableOpacity>
+            <HideableView
+                removeWhenHidden={true}
+                visible={this.state.visibleCluster === 'yellow'}>
+              {this.state.careerYellow.map((career, index) =>{
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, career)
+                      }}>
+                      <View style={[clusterCareerStyle,{
+                        borderColor:'#F2EB39',
+                        backgroundColor:'#F2EB39',
+                      }]} >
+                        <Text style={styles.businessPageColorBox}></Text>
+                      </View>
+                        <Text style={styles.businessNames}>{career.title}</Text>
+                      </TouchableOpacity>
+                    </View>)
+              })}
+            </HideableView>
+
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'orange')}>
+              <View style={[clusterStyle,{
+                backgroundColor:'#F79835',
+                borderColor:'#F79835',
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={{fontFamily:'Helvetica',fontSize: 14,fontWeight: 'bold',flex:3,marginLeft:20,marginRight:5,              }}>
+                Engineering, Const., Manuf., Automotive
+              </Text>
+
+            </TouchableOpacity>
+            <HideableView
+                removeWhenHidden={true}
+                visible={this.state.visibleCluster === 'orange'}>
+              {this.state.careerOrange.map((career, index) =>{
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, career)
+                      }}>
+                      <View style={[clusterCareerStyle,{
+                        borderColor:'#F79835',
+                        backgroundColor:'#F79835',
+                      }]} >
+                        <Text style={styles.businessPageColorBox}></Text>
+                      </View>
+                        <Text style={styles.businessNames}>{career.title}</Text>
+                      </TouchableOpacity>
+                    </View>)
+              })}
+            </HideableView>
+
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'green')}>
+              <View style={[clusterStyle,{
+                backgroundColor:'#57B74F',
+                borderColor:'#57B74F',
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Ag. Food and Natural Resources</Text>
+            </TouchableOpacity>
+            <HideableView
+                removeWhenHidden={true}
+                visible={this.state.visibleCluster === 'green'}>
+              {this.state.careerGreen.map((career, index) =>{
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, career)
+                      }}>
+                      <View style={[clusterCareerStyle,{
+                        borderColor:'#57B74F',
+                        backgroundColor:'#57B74F',
+                      }]} >
+                        <Text style={styles.businessPageColorBox}></Text>
+                      </View>
+                        <Text style={styles.businessNames}>{career.title}</Text>
+                      </TouchableOpacity>
+                    </View>)
+              })}
+            </HideableView>
+
+            <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'blue')}>
+              <View style={[clusterStyle,{
+                backgroundColor:'#6DCCEF',
+                borderColor:'#6DCCEF',
+              }]}>
+                <Text style={styles.businessPageColorBox}>
+                </Text>
+              </View>
+              <Text style={styles.businessPageTextTitle}>Public Safety</Text>
+            </TouchableOpacity>
+            <HideableView
+                removeWhenHidden={true}
+                visible={this.state.visibleCluster === 'blue'}>
+              {this.state.careerBlue.map((career, index) =>{
+                return (
+                    <View key={index}>
+                      <TouchableOpacity style={styles.businessWrapper} onPress={() => {
+                         this.setModalVisible(true, career)
+                      }}>
+                      <View style={[clusterCareerStyle,{
+                        borderColor:'#6DCCEF',
+                        backgroundColor:'#6DCCEF',
+                      }]} >
+                        <Text style={styles.businessPageColorBox}></Text>
+                      </View>
+                        <Text style={styles.businessNames}>{career.title}</Text>
+                      </TouchableOpacity>
+                    </View>)
+              })}
+            </HideableView>
           </View>
           <View style={{ marginBottom:150,}}>
         </View>

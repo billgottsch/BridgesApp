@@ -47,7 +47,7 @@ export default class AddCode extends Component {
       this.setState({circles:newCircles, codeText: ''}, () => {
         AsyncStorage.setItem('circles', JSON.stringify(newCircles)).then(() => {
           if (this.state.circles.length >= 7) {
-            Alert.alert('you have all your codes!')
+            Alert.alert('You have all 7 codes! Great job!')
           }
         })
       })

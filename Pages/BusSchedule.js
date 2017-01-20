@@ -79,10 +79,10 @@ export default class BusSchedule extends Component {
           <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
             <Text style={styles.schoolListTitle}>School  -  Arrival  -  Departure  -  Exit Door</Text>
             {this.state.schools.map((school, index) =>{
-              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold'}}>{school.name}</Text>: {school.arrival} - <Text style={{fontWeight:'bold'}}>{school.departure}</Text> {school.door}</Text></View>)
+              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold', fontSize:14}}>{school.name}</Text>: {school.arrival} - {school.departure} - <Text style={{fontWeight:'bold',fontSize:14}}>{school.door}</Text></Text></View>)
             })}
           </View>
-            <View style={{ marginBottom:130,}}>
+            <View style={{ marginBottom:150, alignItems:'center'}}>
               <Image source={exitMap} style={styles.exitMap}></Image>
             </View>
         </ScrollView>
