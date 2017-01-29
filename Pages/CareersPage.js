@@ -79,9 +79,9 @@ const careerOrange = [
 const careerBlack = []
 
 const careerRed = [
-  {title:'Audiologist', description:'Assess and treat persons with hearing and related disorders. May fit hearing aids and provide auditory training. May perform research related to hearing problems.', education:'Doctoral or professional degree', wage:'$31.92 to $38.35', color:'#EA2430'},
-  {title:'Biomedical Technician', description:'Apply knowledge of engineering, biology, and biomechanical principles to the design, development, and evaluation of biological and health systems and products, such as artificial organs, prostheses, instrumentation, medical information systems, and heath management and care delivery systems.', education:'Bachelor\'s degree', wage:'$35.09 to $58.66', color:'#EA2430'},
-  {title:'Clinical Nurse Specialist', description:'Assess patient health problems and needs, develop and implement nursing care plans, and maintain medical records. Administer nursing care to ill, injured, convalescent, or disabled patients. May advise patients on health maintenance and disease prevention or provide case management.', education:'Licensing or registration required. Associate\'s degree', wage:'$31.47 to $44.53', color:'#EA2430'},
+  {title:'Audiologist', description:'Assess and treat persons with hearing and related disorders. May fit hearing aids and provide auditory training. May perform research related to hearing problems.', education:'Doctoral or professional degree', wages:'$31.92 to $38.35', color:'#EA2430'},
+  {title:'Biomedical Technician', description:'Apply knowledge of engineering, biology, and biomechanical principles to the design, development, and evaluation of biological and health systems and products, such as artificial organs, prostheses, instrumentation, medical information systems, and heath management and care delivery systems.', education:'Bachelor\'s degree', wages:'$35.09 to $58.66', color:'#EA2430'},
+  {title:'Clinical Nurse Specialist', description:'Assess patient health problems and needs, develop and implement nursing care plans, and maintain medical records. Administer nursing care to ill, injured, convalescent, or disabled patients. May advise patients on health maintenance and disease prevention or provide case management.', education:'Licensing or registration required. Associate\'s degree', wages:'$31.47 to $44.53', color:'#EA2430'},
   {title:'Dental Assistant', description:'Assist dentist, set up equipment, prepare patient for treatment, and keep records.', education:'Postsecondary non-degree award', wages:'$19.09 to $24.64', color:'#EA2430'},
   {title:'Dietitian', description:'Plan and conduct food service or nutritional programs to assist in the promotion of health and control of disease. May supervise activities of a department providing quantity food services, counsel individuals, or conduct nutritional research.', education:'Bachelor\'s degree', wages:'$24.32 to $32.74', color:'#EA2430'},
   {title:'Exercise Physiologist', description:'Assess, plan, or implement fitness programs that include exercise or physical activities such as those designed to improve cardiorespiratory function, body composition, muscular strength, muscular endurance, or flexibility.', education:'Bachelor\'s degree', wages:'$25.70 to $33.48', color:'#EA2430'},
@@ -127,31 +127,35 @@ const careerBlue = [
 
 ]
 var clusterStyle = {
-  paddingTop:15,
+  paddingTop:10,
   flexDirection:'column',
-  paddingBottom:15,
-  flex:1,
+  paddingBottom:10,
   margin:0,
+  width:36,
   justifyContent:'center',
   alignItems:'center',
-  borderWidth:5,
+  borderWidth:1,
   borderStyle:'solid',
-  borderTopRightRadius: 55,
-  borderBottomRightRadius: 55,
+  borderTopRightRadius: 35,
+  borderBottomRightRadius: 35,
+  borderTopLeftRadius:35,
+  borderBottomLeftRadius: 35,
 }
 
 var clusterCareerStyle = {
-  paddingTop:5,
+  paddingTop:10,
   flexDirection:'column-reverse',
-  paddingBottom:5,
-  flex:1,
+  paddingBottom:10,
+  width: 22,
   margin:0,
   justifyContent:'center',
   alignItems:'center',
-  borderWidth:5,
+  borderWidth:1,
   borderStyle:'solid',
-  borderTopLeftRadius: 55,
-  borderBottomLeftRadius: 55,
+  borderTopRightRadius: 35,
+  borderBottomRightRadius: 35,
+  borderTopLeftRadius:35,
+  borderBottomLeftRadius: 35,
 }
 
 export default class ListofCareers extends Component {
@@ -196,26 +200,29 @@ render() {
           transparent={false}
           visible={this.state.modalVisible}
         >
-          <StatusBarBackground />
-          <TouchableOpacity onPress={() => {
-              this.setModalVisible(!this.state.modalVisible)
-          }}>
-            <Text><FAIcon name='window-close' size={30} style={{padding:20, marginTop:2}}></FAIcon></Text>
-          </TouchableOpacity>
-          <View>
-            <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center', backgroundColor: this.state.modalCareer.color}}>{this.state.modalCareer.title}</Text>
-            <Text>{"\n"}</Text>
-            <Text style={styles.modalName}>What kind of schooling do I need? {"\n"}</Text>
-            <Text style={styles.modalData}>{this.state.modalCareer.education}</Text>
-            <Text>{"\n"}</Text>
-            <Text style={styles.modalName}>What do they do?{"\n"}</Text>
-            <Text style={styles.modalData}>{this.state.modalCareer.description}</Text>
-            <Text>{"\n"}</Text>
-            <Text style={styles.modalName}>Typical pay range(per hour):{"\n"}</Text>
-            <Text style={styles.modalData}>{this.state.modalCareer.wages}</Text>
-            <Text style={{marginTop:100, textAlign:'center', color: '#ccc'}}>powered by MN DEED</Text>
-          </View>
-
+          <ScrollView>
+            <View style={{backgroundColor:this.state.modalCareer.color, height:100, flexDirection:'row', alignItems:'center', marginBottom:20, padding:0,  }}>
+              <TouchableOpacity
+                style={{height:40, width:40, padding:5,}}
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible)
+              }}>
+              <FAIcon key='first' type='icon' name='times' size={25}/>
+              </TouchableOpacity>
+              <Text style={{fontSize:24, fontWeight:'bold', marginRight:40, flex: 2, textAlign: 'center',}}>
+                {this.state.modalCareer.title}
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.modalCareerNameFirst}>What schooling do you need?</Text>
+              <Text style={styles.modalCareerData}>{this.state.modalCareer.education}</Text>
+              <Text style={styles.modalCareerName}>What do they do?</Text>
+              <Text style={styles.modalCareerData}>{this.state.modalCareer.description}</Text>
+              <Text style={styles.modalCareerName}>Typical pay range(per hour)</Text>
+              <Text style={styles.modalCareerData}>{this.state.modalCareer.wages}</Text>
+              <Text style={{marginTop:100, marginBottom:40, textAlign:'center', color: '#ccc'}}>powered by MN DEED</Text>
+            </View>
+        </ScrollView>
         </Modal> : null }
 
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>Take a look at the careers represented today!</Text>
@@ -244,7 +251,6 @@ render() {
                           borderColor:'#CB3795',
                           backgroundColor:'#CB3795',
                         }]} >
-                          <Text style={styles.businessPageColorBox}></Text>
                         </View>
                           <Text style={styles.businessNames}>{career.title}</Text>
                         </TouchableOpacity>
@@ -274,7 +280,6 @@ render() {
                         borderColor:'#EA2430',
                         backgroundColor:'#EA2430',
                       }]} >
-                        <Text style={styles.businessPageColorBox}></Text>
                       </View>
                         <Text style={styles.businessNames}>{career.title}</Text>
                       </TouchableOpacity>
@@ -305,7 +310,6 @@ render() {
                         borderColor:'#F2EB39',
                         backgroundColor:'#F2EB39',
                       }]} >
-                        <Text style={styles.businessPageColorBox}></Text>
                       </View>
                         <Text style={styles.businessNames}>{career.title}</Text>
                       </TouchableOpacity>
@@ -321,7 +325,7 @@ render() {
                 <Text style={styles.businessPageColorBox}>
                 </Text>
               </View>
-              <Text style={{fontFamily:'Helvetica',fontSize: 14,fontWeight: 'bold',flex:3,marginLeft:20,marginRight:5,              }}>
+              <Text style={styles.businessPageTextTitle}>
                 Engineering, Const., Manuf., Automotive
               </Text>
 
@@ -339,7 +343,6 @@ render() {
                         borderColor:'#F79835',
                         backgroundColor:'#F79835',
                       }]} >
-                        <Text style={styles.businessPageColorBox}></Text>
                       </View>
                         <Text style={styles.businessNames}>{career.title}</Text>
                       </TouchableOpacity>
@@ -370,7 +373,6 @@ render() {
                         borderColor:'#57B74F',
                         backgroundColor:'#57B74F',
                       }]} >
-                        <Text style={styles.businessPageColorBox}></Text>
                       </View>
                         <Text style={styles.businessNames}>{career.title}</Text>
                       </TouchableOpacity>
@@ -401,7 +403,6 @@ render() {
                         borderColor:'#6DCCEF',
                         backgroundColor:'#6DCCEF',
                       }]} >
-                        <Text style={styles.businessPageColorBox}></Text>
                       </View>
                         <Text style={styles.businessNames}>{career.title}</Text>
                       </TouchableOpacity>

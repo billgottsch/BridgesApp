@@ -253,31 +253,46 @@ export default class BusinessesPage extends Component {
           visible={this.state.modalVisible}>
 
           {/* <StatusBarBackground /> */}
-          <View style={{justifyContent:'center'}}>
-            <Text style={{fontSize:20, padding:15, fontWeight:'bold', textAlign:'center',marginBottom:10, paddingTop:20,backgroundColor:this.state.modalBusiness.color}}>{this.state.modalBusiness.name}</Text>
-            <View>
-              <TouchableOpacity onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible)
-              }}>
-              <FAIcon key='first' type='icon' name='times' size={20}/>
+          <View style={{justifyContent:'space-between', margin:0,}}>
+            <View style={{backgroundColor:this.state.modalBusiness.color, height:100, flexDirection:'row', alignItems:'center', marginBottom:20, padding:0,  }}>
+              <TouchableOpacity
+                style={{height:40, width:40, padding:5,}}
+                  onPress={() => {
+                    this.setModalVisible(!this.state.modalVisible)
+                  }}>
+                    <FAIcon key='first' type='icon' name='times' size={25}/>
               </TouchableOpacity>
+
+              <Text style={{fontSize:24, fontWeight:'bold', marginRight:40, flex: 2, textAlign: 'center',}}>
+                {this.state.modalBusiness.name}
+              </Text>
+
             </View>
-            <Image style={{alignSelf:'center', marginBottom:60, marginTop:30}} source={require('BridgesApp/assets/chamber-logo.png')}></Image>
-            <View>
-              <FAIcon key='first' type='icon' name='globe' size={20}/>
+
+            {/* <Image style={{marginLeft:0, marginRight:0, paddingLeft: 0, paddingRight:0}} source={require('BridgesApp/assets/chamber-logo.png')}></Image> */}
+
+            <View style={styles.modalIconContainer}>
+              <FAIcon key='first' type='icon' name='globe' style={{paddingLeft:50,}} size={20}/>
               <Text style={styles.modalName}>Address</Text>
+            </View>
+            <View>
               <Text style={styles.modalData}>{this.state.modalBusiness.address}{"\n"}{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
             </View>
-            <View>
-              <FAIcon key='first't ype='icon' name='mobile' size={20}/>
+
+            <View style={styles.modalIconContainer}>
+              <FAIcon key='first' type='icon' style={{paddingLeft:52,}} name='mobile' size={25}/>
               <Autolink
-                style={styles.modalData}
+                style={styles.modalNamePhone}
                 text= {this.state.modalBusiness.phone}/>
-              <Text style={styles.modalName}>Give them a call!</Text>
+            </View>
+            <View>
+              <Text style={{fontWeight:'bold', fontSize:24, textAlign:'center',}}>Give them a call!</Text>
             </View>
 
           </View>
         </Modal> : null }
+
+
         <Text style={{textAlign:'center', fontWeight:'bold', fontSize:16, marginLeft:40, marginRight:40,marginBottom:10, marginTop:20}}>
           Did you find a business you liked? Click below for more info!
         </Text>
@@ -399,7 +414,6 @@ export default class BusinessesPage extends Component {
                       borderColor:'#F79835',
                       backgroundColor:'#F79835',
                     }]} >
-                      <Text style={styles.businessPageColorBox}></Text>
                     </View>
                       <Text style={styles.businessNames}>{business.name}</Text>
                     </TouchableOpacity>
@@ -430,7 +444,6 @@ export default class BusinessesPage extends Component {
                       borderColor:'#57B74F',
                       backgroundColor:'#57B74F',
                     }]} >
-                      <Text style={styles.businessPageColorBox}></Text>
                     </View>
                       <Text style={styles.businessNames}>{business.name}</Text>
                     </TouchableOpacity>
@@ -462,7 +475,6 @@ export default class BusinessesPage extends Component {
                       borderColor:'#6DCCEF',
                       backgroundColor:'#6DCCEF',
                     }]} >
-                      <Text style={styles.businessPageColorBox}></Text>
                     </View>
                       <Text style={styles.businessNames}>{business.name}</Text>
                     </TouchableOpacity>

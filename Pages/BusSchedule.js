@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Alert, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
+
 import StatusBarBackground from './StatusBarBackground';
 import styles from './Styles';
 import exitMap from './ExitDoorMap.jpg';
+
 
 const allSchools = [
   {name:'Aitkin', arrival:'9:15am', departure:'12pm', door:'South'},
@@ -52,18 +54,6 @@ export default class BusSchedule extends Component {
 
   }
 
-  // onSchoolSearch(text){
-  //   })
-  // }
-  // onSearchSubmit(e) {
-  //   e.preventDefault();
-  //   var newSchool = this.state.schools.name.reduce();
-  //       this.setState({
-  //         schools: newSchool,
-  //         newItemValue: ''
-  //       })
-  //   }
-
   render() {
     return(
         <ScrollView style={{backgroundColor:'#88B467'}}>
@@ -77,7 +67,7 @@ export default class BusSchedule extends Component {
               placeholder="Search for school..." />
           </View>
           <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
-            <Text style={styles.schoolListTitle}>School  -  Arrival  -  Departure  -  Exit Door</Text>
+            <Text style={styles.schoolListTitle}>School-Arrival-Departure-Exit Door</Text>
             {this.state.schools.map((school, index) =>{
               return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold', fontSize:14}}>{school.name}</Text>: {school.arrival} - {school.departure} - <Text style={{fontWeight:'bold',fontSize:14}}>{school.door}</Text></Text></View>)
             })}

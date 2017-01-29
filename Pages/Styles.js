@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 
   homepageTitle: {
     fontFamily:'Helvetica',
-    fontSize:26,
+    fontSize:30,
     fontWeight:'bold',
     width:300,
     marginTop:20,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 
   homepageTextTitle: {
     fontFamily:'Helvetica',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     flex:3,
     marginLeft:20,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     flex:3,
     fontWeight:'normal',
     fontFamily:'Helvetica',
-    fontSize:13,
+    fontSize:14,
   },
 
   statusbarbackground:{
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
   },
 
   fullMap: {
-    height: 200,
-    width: 374,
+    height: 220,
+    width: 340,
   },
 
   /* -----BUSINESSPAGE STYLING----- */
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 
   businessPageTextTitle: {
     fontFamily:'Helvetica',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     flex:3,
     marginLeft:40,
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
 
   businessNames: {
     fontFamily:'Helvetica',
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 'bold',
     flex:3,
     marginLeft:30,
@@ -196,11 +196,11 @@ const styles = StyleSheet.create({
     flex:3,
     fontWeight:'normal',
     fontFamily:'Helvetica',
-    fontSize:13,
+    fontSize:16,
   },
 
   businessesList: {
-    fontSize: 12,
+    fontSize: 16,
     marginTop:5,
     flex:1,
     flexDirection:'row',
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
 
   businessListTitle: {
-    fontSize: 14,
+    fontSize: 16,
     marginTop:5,
     padding: 10,
     fontWeight: 'bold',
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
   /* -----BUSPAGE STYLING----- */
 
   schoolListTitle: {
-    fontSize: 16,
+    fontSize: 20,
     marginTop:20,
     fontWeight: 'bold',
     backgroundColor:'#BAD0AB',
@@ -269,8 +269,8 @@ const styles = StyleSheet.create({
   },
 
   exitMap: {
-    width:360,
-    height: 280,
+    width:340,
+    height: 240,
     margin:0,
   },
 
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     marginTop:5,
     borderWidth:1,
     borderColor:'#fff',
-    fontSize:14,
+    fontSize:16,
   },
 
 
@@ -329,17 +329,60 @@ const styles = StyleSheet.create({
 
   },
 
+  modalIconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom:20,
+    marginTop:60,
+    padding:0,
+  },
+
   modalName:{
-    fontSize:18,
+    fontSize:22,
     fontWeight:'bold',
-    marginBottom:20
+    flex: 1,
+    // paddingRight: 40,
+    paddingLeft:70,
+    textAlign: 'left',
+  },
+
+  modalNamePhone: {
+    fontSize:22,
+    fontWeight:'bold',
+    flex: 1,
+    paddingLeft:40,
+    textAlign: 'left',
+
   },
 
   modalData: {
-    fontSize:16,
+    textAlign:'center',
+    // paddingLeft:80,
+    fontSize:18,
+  },
+
+  modalCareerNameFirst:{
+    textAlign:'center',
+    fontSize:20,
+    fontWeight:'bold',
+    marginBottom:10,
+    marginTop:30,
+  },
+
+  modalCareerName:{
+    textAlign:'center',
+    fontSize:20,
+    fontWeight:'bold',
+    marginBottom:10,
+    marginTop:10,
+  },
+
+  modalCareerData: {
+    textAlign:'center',
+    fontSize:18,
     marginLeft: 10,
     marginRight: 10,
-    marginBottom:20,
+    marginBottom:40,
   },
 
   modalPhone: {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Alert, AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import Button from 'react-native-button';
 
+import api from './api.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
 
@@ -13,6 +14,7 @@ export default class ProfilePage extends Component {
       school:'',
       phone:'',
       email:'',
+      formData:{}
     }
   }
 
@@ -34,6 +36,10 @@ export default class ProfilePage extends Component {
     }
 
   }
+// 
+//   onSubmitData() {
+//
+// }
 
   saveData(key, value) {
     // Alert.alert(name)

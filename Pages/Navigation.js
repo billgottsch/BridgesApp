@@ -22,7 +22,7 @@ export default class Navigation extends Component {
   constructor(props){
     super(props);
     this.state = {
-      page:'ProfilePage',
+      page:'HomePage',
     };
   }
   renderPage() {
@@ -43,7 +43,7 @@ export default class Navigation extends Component {
         return <View><AddCode /></View>;
 
       default:
-        return <View><ProfilePage /></View>;
+        return <View><HomePage /></View>;
       }
     };
 
