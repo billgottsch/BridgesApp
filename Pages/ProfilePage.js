@@ -10,7 +10,7 @@ import styles from './Styles';
 export default class ProfilePage extends Component {
   constructor(props) {
     super(props);
-    this.state ={
+    this.state = {
       name:'',
       school:'',
       phone:'',
@@ -31,31 +31,29 @@ export default class ProfilePage extends Component {
     AsyncStorage.getItem('email').then((value) => {
       this.setState({'email': value})
     }).done()
-    if (this.props.circles) {
-      Alert.alert(this.props.circles[0])
-    }
+    // if (this.props.circles) {
+    //   Alert.alert(this.props.circles[0])
+    // }
 
   }
 
-
-  onSubmitData() {
-    axios.post(api(), {
-        name: this.state.name,
-        school: this.state.school,
-        phone:this.state.phone,
-        email:this.state.email,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  onNewStudentSubmit() {
+    let newStudent = {
+      name: this.state.name,
+      school: this.state.school,
+      phone: this.state.phone,
+      email: this.state.email,
+    };
+    axios.post(api(), newStudent).then(() => {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
 
   saveData(key, value) {
-    // Alert.alert(name)
     AsyncStorage.setItem(key, value);
     this.setState({[key]: value});
   }
@@ -140,9 +138,9 @@ export default class ProfilePage extends Component {
             containerStyle={{backgroundColor:'#43781C', padding:10, width:180, marginTop:10 }}
             style={{fontSize: 14, color: 'white'}}
             styleDisabled={{color: 'red'}}
-            onPress={this.onSubmitData.bind(this)}
+            onPress={this.onNewStudentSubmit.bind(this)}
             >
-            Lets get to exploring!
+            I'm ready to win!
           </Button>
         </View>
       </ScrollView>

@@ -47,12 +47,12 @@ export default class AddCode extends Component {
       this.setState({circles:newCircles, codeText: ''}, () => {
         AsyncStorage.setItem('circles', JSON.stringify(newCircles)).then(() => {
           if (this.state.circles.length >= 7) {
-            Alert.alert('You have all 7 codes! Great job!')
+            Alert.alert('Way to go!')
           }
         })
       })
     } else if (this.state.codeText !== correctCodes) {
-      return Alert.alert('Oops! That code doesn\'t exist! Try again.')
+      return Alert.alert('Oops! Check your code and try again.')
     }
   }
 
