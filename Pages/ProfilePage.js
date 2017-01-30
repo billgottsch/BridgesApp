@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Alert, AsyncStorage, AppRegistry, StyleSheet, Text, TextInput, View, Image, ScrollView, ListView } from 'react-native';
 import Button from 'react-native-button';
 
+import axios from 'axios';
 import api from './api.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles';
@@ -14,7 +15,6 @@ export default class ProfilePage extends Component {
       school:'',
       phone:'',
       email:'',
-      formData:{}
     }
   }
 
@@ -36,10 +36,23 @@ export default class ProfilePage extends Component {
     }
 
   }
-// 
-//   onSubmitData() {
-//
-// }
+
+
+  onSubmitData() {
+    axios.post(api(), {
+        name: this.state.name,
+        school: this.state.school,
+        phone:this.state.phone,
+        email:this.state.email,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
 
   saveData(key, value) {
     // Alert.alert(name)
@@ -127,7 +140,7 @@ export default class ProfilePage extends Component {
             containerStyle={{backgroundColor:'#43781C', padding:10, width:180, marginTop:10 }}
             style={{fontSize: 14, color: 'white'}}
             styleDisabled={{color: 'red'}}
-            onPress={this.saveData.bind(this)}
+            onPress={this.onSubmitData.bind(this)}
             >
             Lets get to exploring!
           </Button>
