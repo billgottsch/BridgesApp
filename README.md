@@ -24,8 +24,8 @@ Every year Bridges spends thousands of dollars on printing of career data  gathe
 The goal of the app is to automate every part of that.
 
 
-![alt tag](http://www.giphy.com/gifs/26xBM55b2N1LI299u)
-![alt tag](http://www.giphy.com/gifs/l3q2QXNRQKoGRlAVW)
-![alt tag](http://www.giphy.com/gifs/d3mnFjEPacujGc2Q)
-![alt tag](http://www.giphy.com/gifs/26xBHSVVZJQDsc6wE)
-![alt tag](http://www.giphy.com/gifs/l3q2CXupIWz5m8cDu)
+![img](http://www.giphy.com/gifs/26xBM55b2N1LI299u)
+![img](http://www.giphy.com/gifs/l3q2QXNRQKoGRlAVW)
+![img](http://www.giphy.com/gifs/d3mnFjEPacujGc2Q)
+![img](http://www.giphy.com/gifs/26xBHSVVZJQDsc6wE)
+![img](http://www.giphy.com/gifs/l3q2CXupIWz5m8cDu)
