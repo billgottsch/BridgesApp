@@ -25,6 +25,7 @@ export default class HomePage extends Component {
                   paddingTop:25,
                   flexDirection:'column',
                   paddingBottom:25,
+                  height:120,
                   flex:1,
                   margin:0,
                   justifyContent:'center',
@@ -45,6 +46,7 @@ export default class HomePage extends Component {
                   paddingTop:25,
                   flexDirection:'column',
                   paddingBottom:25,
+                  height:120,
                   flex:1,
                   margin:0,
                   justifyContent:'center',
@@ -65,6 +67,7 @@ export default class HomePage extends Component {
                   paddingTop:25,
                   flexDirection:'column',
                   paddingBottom:25,
+                  height:120,
                   flex:1,
                   margin:0,
                   justifyContent:'center',
@@ -81,7 +84,7 @@ export default class HomePage extends Component {
               <Text style={styles.homepageTextTitle}>Ruttger's Bay Lake Lodge{"\n"}<Text style={styles.homepageTextData}>Dave Sadlowsky will be showing off how to fit, bend and build golf clubs to spec!</Text></Text>
             </View>
           </View>
-            <View style={{ marginBottom:150, justifyContent:'center'}}>
+            <View style={{ marginBottom:150, paddingLeft:0, }}>
               <Text style={{textAlign:'center', marginBottom:5,backgroundColor:'white', color:"#88B467"}}>What do you want to explore today?</Text>
               <Image source={require('BridgesApp/assets/cedmap.jpg')} style={styles.fullMap}/>
             </View>

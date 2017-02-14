@@ -202,17 +202,18 @@ render() {
         >
           <ScrollView>
             <View style={{backgroundColor:this.state.modalCareer.color, height:100, flexDirection:'row', alignItems:'center', marginBottom:20, padding:0,  }}>
-              <TouchableOpacity
-                style={{height:40, width:40, padding:5,}}
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible)
-              }}>
-              <FAIcon key='first' type='icon' name='times' size={25}/>
-              </TouchableOpacity>
-              <Text style={{fontSize:24, fontWeight:'bold', marginRight:40, flex: 2, textAlign: 'center',}}>
+              <Text style={{fontSize:24, fontWeight:'bold', margin:10,flex: 2, textAlign: 'center',}}>
                 {this.state.modalCareer.title}
               </Text>
             </View>
+            <TouchableOpacity
+              style={{height:50, width:50, padding:10, margin:0,}}
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible)
+                }}>
+                  <FAIcon key='first' type='icon' name='angle-left' size={30}/>
+
+            </TouchableOpacity>
             <View>
               <Text style={styles.modalCareerNameFirst}>What schooling do you need?</Text>
               <Text style={styles.modalCareerData}>{this.state.modalCareer.education}</Text>
@@ -220,7 +221,8 @@ render() {
               <Text style={styles.modalCareerData}>{this.state.modalCareer.description}</Text>
               <Text style={styles.modalCareerName}>Typical pay range(per hour)</Text>
               <Text style={styles.modalCareerData}>{this.state.modalCareer.wages}</Text>
-              <Text style={{marginTop:100, marginBottom:40, textAlign:'center', color: '#ccc'}}>powered by MN DEED</Text>
+              <Text style={{ textAlign:'center', marginTop:30, color: '#ccc'}}>powered by MN DEED</Text>
+
             </View>
         </ScrollView>
         </Modal> : null }
@@ -410,7 +412,7 @@ render() {
               })}
             </HideableView>
           </View>
-          <View style={{ marginBottom:150,}}>
+          <View style={{ marginBottom:160,}}>
         </View>
       </ScrollView>
     )

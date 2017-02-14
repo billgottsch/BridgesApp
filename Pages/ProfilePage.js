@@ -37,22 +37,6 @@ export default class ProfilePage extends Component {
 
   }
 
-  onNewStudentSubmit() {
-    let newStudent = {
-      name: this.state.name,
-      school: this.state.school,
-      phone: this.state.phone,
-      email: this.state.email,
-    };
-    axios.post(api(), newStudent).then(() => {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-
   saveData(key, value) {
     AsyncStorage.setItem(key, value);
     this.setState({[key]: value});
@@ -63,6 +47,32 @@ export default class ProfilePage extends Component {
       this.setState({circles:[]})
     })
   }
+
+  onNewStudentSubmit() {
+    // let newStudent = {
+    //   name: this.state.name,
+    //   school: this.state.school,
+    //   phone: this.state.phone,
+    //   email: this.state.email,
+    // };
+      Alert.alert('You\'re good to go!')
+      axios.post(api() + '/students', {
+        name: this.state.name,
+        school: this.state.school,
+        phone: this.state.phone,
+        email: this.state.email,
+      }).then((response) => {
+          console.log(typeOf (this.state.name));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      // if (this.state.name || this.state.school || this.state.phone || this.state.email === '') {
+      //   return Alert.alert('Please fill out all fields!')
+      // }
+    }
+
+
 
   render() {
     return(

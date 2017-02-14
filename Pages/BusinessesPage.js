@@ -253,36 +253,37 @@ export default class BusinessesPage extends Component {
           visible={this.state.modalVisible}>
 
           {/* <StatusBarBackground /> */}
-          <View style={{justifyContent:'space-between', margin:0,}}>
+          <View style={{margin:0, }}>
             <View style={{backgroundColor:this.state.modalBusiness.color, height:100, flexDirection:'row', alignItems:'center', marginBottom:20, padding:0,  }}>
-              <TouchableOpacity
-                style={{height:40, width:40, padding:5,}}
-                  onPress={() => {
-                    this.setModalVisible(!this.state.modalVisible)
-                  }}>
-                    <FAIcon key='first' type='icon' name='times' size={25}/>
-              </TouchableOpacity>
 
-              <Text style={{fontSize:24, fontWeight:'bold', marginRight:40, flex: 2, textAlign: 'center',}}>
+              <Text style={{fontSize:24, fontWeight:'bold', margin:10,flex: 2, textAlign: 'center',}}>
                 {this.state.modalBusiness.name}
               </Text>
-
             </View>
+            <TouchableOpacity
+              style={{height:25, width:50, padding:10, margin:0,}}
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible)
+                }}>
+                  <FAIcon key='first' type='icon' name='angle-left' size={30}/>
+            </TouchableOpacity>
+
 
             {/* <Image style={{marginLeft:0, marginRight:0, paddingLeft: 0, paddingRight:0}} source={require('BridgesApp/assets/chamber-logo.png')}></Image> */}
 
-            <View style={styles.modalIconContainer}>
-              <FAIcon key='first' type='icon' name='globe' style={{paddingLeft:50,}} size={20}/>
-              <Text style={styles.modalName}>Address</Text>
+            <View style={styles.modalBusinessIconContainer}>
+              <FAIcon key='first' type='icon' name='globe' size={20}/>
+              <Text style={styles.modalBusinessName}>Address</Text>
             </View>
             <View>
-              <Text style={styles.modalData}>{this.state.modalBusiness.address}{"\n"}{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
+              <Text style={styles.modalBusinessData}>{this.state.modalBusiness.address}</Text>
+                <Text style={styles.modalBusinessData}>{this.state.modalBusiness.city}, {this.state.modalBusiness.state} {this.state.modalBusiness.zip}</Text>
             </View>
 
-            <View style={styles.modalIconContainer}>
-              <FAIcon key='first' type='icon' style={{paddingLeft:52,}} name='mobile' size={25}/>
+            <View style={styles.modalBusinessIconContainer}>
+              <FAIcon key='first' type='icon' name='mobile' size={25}/>
               <Autolink
-                style={styles.modalNamePhone}
+                style={styles.modalBusinessNamePhone}
                 text= {this.state.modalBusiness.phone}/>
             </View>
             <View>
@@ -481,7 +482,7 @@ export default class BusinessesPage extends Component {
                   </View>)
             })}
           </HideableView>
-          <View>
+          {/* <View>
             <TouchableOpacity style={styles.businessPageTextWrapper} onPress={this.toggleCluster.bind(this, 'black')}>
               <View style={[clusterStyle,{
                   borderColor:'#231F20',
@@ -511,7 +512,7 @@ export default class BusinessesPage extends Component {
                     </View>)
               })}
             </HideableView>
-          </View>
+          </View> */}
         </View>
           <View style={{ marginBottom:160,}}>
           </View>

@@ -6,14 +6,6 @@ import exitMap from './ExitDoorMap.jpg';
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import { Router, Scene, Actions } from 'react-native-router-flux';
 
-//'#CB3795';
-//  '#EA2430';
- //'#231F20';
-// '#F79835';
-//  '#57B74F';
-//  '#6DCCEF';
-//  '#F2EB39';
-
 
 export default class ListofCareers extends Component {
   constructor(props) {

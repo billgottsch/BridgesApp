@@ -107,17 +107,17 @@ const styles = StyleSheet.create({
 
   homepageTextTitle: {
     fontFamily:'Helvetica',
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: 'bold',
     flex:3,
-    marginLeft:20,
+    marginLeft:15,
   },
 
   homepageTextData: {
     flex:3,
     fontWeight:'normal',
     fontFamily:'Helvetica',
-    fontSize:14,
+    fontSize:13,
   },
 
   statusbarbackground:{
@@ -128,8 +128,12 @@ const styles = StyleSheet.create({
   },
 
   fullMap: {
-    height: 220,
-    width: 340,
+
+    width: 372,
+    height:250,
+    margin:0,
+    padding:0,
+    resizeMode:'cover'
   },
 
   /* -----BUSINESSPAGE STYLING----- */
@@ -185,11 +189,21 @@ const styles = StyleSheet.create({
 
   businessNames: {
     fontFamily:'Helvetica',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     flex:3,
-    marginLeft:30,
+    marginLeft:20,
     marginRight:5,
+  },
+  businessNamesLA: {
+    fontFamily:'Helvetica',
+    fontSize: 14,
+    fontWeight: 'bold',
+    flex:3,
+    marginLeft:20,
+    marginRight:5,
+    color:'white',
+
   },
 
   businessPageTextData: {
@@ -245,11 +259,12 @@ const styles = StyleSheet.create({
     flex:1,
     textAlign: 'center',
     borderWidth: 1,
+    padding:5,
     // justifyContent:'space-around',
   },
 
   schoolList: {
-    fontSize: 13,
+    fontSize: 14,
     marginTop:5,
     // flex:1,
     flexDirection:'row',
@@ -269,9 +284,9 @@ const styles = StyleSheet.create({
   },
 
   exitMap: {
-    width:340,
-    height: 240,
+    height: 300,
     margin:0,
+    resizeMode: 'contain',
   },
 
   /* -----NAVPAGE STYLING----- */
@@ -322,40 +337,38 @@ const styles = StyleSheet.create({
   /*   MODAL STYLING   */
   /*   MODAL STYLING   */
 
-  modalTitle: {
+  modalBusinessTitle: {
     fontSize:16,
     fontWeight:'bold',
     textAlign:'center',
 
   },
 
-  modalIconContainer: {
+  modalBusinessIconContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
     marginBottom:20,
     marginTop:60,
     padding:0,
+    justifyContent:'center'
   },
 
-  modalName:{
+  modalBusinessName:{
     fontSize:22,
     fontWeight:'bold',
-    flex: 1,
-    // paddingRight: 40,
-    paddingLeft:70,
-    textAlign: 'left',
+    marginRight:10,
+    marginLeft:10,
+    // textAlign: 'center',
   },
 
-  modalNamePhone: {
+  modalBusinessNamePhone: {
     fontSize:22,
     fontWeight:'bold',
-    flex: 1,
-    paddingLeft:40,
-    textAlign: 'left',
+    marginRight:10,
+    marginLeft:10,
 
   },
 
-  modalData: {
+  modalBusinessData: {
     textAlign:'center',
     // paddingLeft:80,
     fontSize:18,
@@ -371,7 +384,7 @@ const styles = StyleSheet.create({
 
   modalCareerName:{
     textAlign:'center',
-    fontSize:20,
+    fontSize:18,
     fontWeight:'bold',
     marginBottom:10,
     marginTop:10,
@@ -379,7 +392,7 @@ const styles = StyleSheet.create({
 
   modalCareerData: {
     textAlign:'center',
-    fontSize:18,
+    fontSize:16,
     marginLeft: 10,
     marginRight: 10,
     marginBottom:40,

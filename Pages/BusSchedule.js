@@ -66,10 +66,10 @@ export default class BusSchedule extends Component {
               placeholderTextColor='#88B467'
               placeholder="Search for school..." />
           </View>
-          <View style={{flex:1, margin:10, justifyContent:'space-around'}}>
-            <Text style={styles.schoolListTitle}>School-Arrival-Departure-Exit Door</Text>
+          <View style={{flex:1, margin:5, justifyContent:'space-around'}}>
+            <Text style={styles.schoolListTitle}>Bus scheduling</Text>
             {this.state.schools.map((school, index) =>{
-              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold', fontSize:14}}>{school.name}</Text>: {school.arrival} - {school.departure} - <Text style={{fontWeight:'bold',fontSize:14}}>{school.door}</Text></Text></View>)
+              return (<View style={{minHeight:40}} key={index}><Text style={styles.schoolList} key={index}><Text style={{fontWeight:'bold', fontSize:18}}>{school.name}</Text> <Text>{"\n"} Arrival:<Text style={{color:'#4869E8',fontWeight:'bold'}}> {school.arrival}</Text>  -  Departure:<Text style={{color:'#FF5038',fontWeight:'bold'}}> {school.departure}</Text></Text><Text style={{fontWeight:'bold',fontSize:18}}>{"\n"}Exit at {school.door} door</Text></Text></View>)
             })}
           </View>
             <View style={{ marginBottom:150, alignItems:'center'}}>

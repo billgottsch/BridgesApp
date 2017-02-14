@@ -59,16 +59,16 @@ export default class AddCode extends Component {
   renderCodesPage() {
     return (
       <ScrollView>
-        <View style={{flex:1,alignItems:'center', paddingTop:30, justifyContent:'center', flexDirection:'row'}}>
-          <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:290}}>To be eligible for the giveaways you must talk with at least 7 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be registered!</Text>
+        <View style={{flex:1,alignItems:'center', paddingTop:20, justifyContent:'center', flexDirection:'row'}}>
+          <Text style={{fontWeight:'bold', textAlign:'center', fontSize:16, width:310}}>To be eligible for the giveaways you must talk with at least 7 businesses. {"\n"}{"\n"}Each business will be given a code, just hand your phone to the representitive to be added!</Text>
         </View>
 
         <View style={{flex:1,alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
           <TextInput
-            autoCorrect= 'false'
+            autoCorrect= {false}
             autoCapitalize="none"
-            secureTextEntry= 'true'
-            spellCheck= 'false'
+            secureTextEntry= {true}
+            spellCheck= {false}
             value={this.state.codeText}
             keyboardType='default'
             style={styles.inputSearch}
@@ -80,7 +80,7 @@ export default class AddCode extends Component {
           />
         </View>
 
-        <View style={{flex:1,alignItems:'center', justifyContent:'center', marginTop:10, marginBottom:50, flexDirection:'row'}}>
+        <View style={{flex:1,alignItems:'center', justifyContent:'center', marginTop:10, marginBottom:20, flexDirection:'row'}}>
             <Button
               containerStyle={{backgroundColor:'#43781C', padding:10, width:80}}
               style={{fontSize: 14, color: 'white'}}
