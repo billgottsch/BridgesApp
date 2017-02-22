@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontFamily:'Helvetica',
     fontSize:18,
     padding: 0,
-    marginBottom:5,
+    marginBottom:6,
     textAlign:'center',
     textShadowColor: '#839477',
     textShadowRadius:.5,
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
   },
 
   exitMap: {
-    height: 300,
+    height: 280,
     margin:0,
     resizeMode: 'contain',
   },
