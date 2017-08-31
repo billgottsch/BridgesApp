@@ -23,15 +23,10 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		71580FBA92DC4884BB627011 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33F49142CA04D6FA2C9E0EF /* FontAwesome.ttf */; };
 		7B5F3B6206AC451F8A7B7CAD /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0079349FE4304C48A8498177 /* libRNVectorIcons.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		96DC600905764A23B2CFB15E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF0D5C8C812C4F4ABE7AA58F /* EvilIcons.ttf */; };
-		9A538104F3214FF1BC1F9DCE /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 835B5D9201674DB78FFB5E6B /* Zocial.ttf */; };
-		AD710CB6D284478F93A196B4 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D320975E84534B1B83719084 /* Ionicons.ttf */; };
-		AEF8E4B1197546CA9D1E3C72 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FD21FCEC7C9456ABAB589B4 /* Entypo.ttf */; };
 		C71571A41E0C5E4E0097D6FD /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C715719B1E0C5E4E0097D6FD /* Entypo.ttf */; };
-		C71571A51E0C5E4E0097D6FD /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C715719C1E0C5E4E0097D6FD /* EvilIcons.ttf */; };
 		C71571A61E0C5E4E0097D6FD /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C715719D1E0C5E4E0097D6FD /* FontAwesome.ttf */; };
 		C71571A71E0C5E4E0097D6FD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C715719E1E0C5E4E0097D6FD /* Foundation.ttf */; };
 		C71571A81E0C5E4E0097D6FD /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C715719F1E0C5E4E0097D6FD /* Ionicons.ttf */; };
@@ -39,11 +34,7 @@
 		C71571AA1E0C5E4E0097D6FD /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C71571A11E0C5E4E0097D6FD /* Octicons.ttf */; };
 		C71571AB1E0C5E4E0097D6FD /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C71571A21E0C5E4E0097D6FD /* SimpleLineIcons.ttf */; };
 		C71571AC1E0C5E4E0097D6FD /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C71571A31E0C5E4E0097D6FD /* Zocial.ttf */; };
-		C7197A42CA6544A89F9E4C49 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ACD5E5E5DD54F70A812D864 /* Foundation.ttf */; };
 		C77A71DF1E301C0100212309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		D2AA839D7B584F02A2FB3C9D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E79F4EC852E648AC90020D4C /* SimpleLineIcons.ttf */; };
-		D6B520BA320B4F82AAB52F97 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AD580A13DAE4176BAA6A59F /* MaterialIcons.ttf */; };
-		F968FFC7FDBF4E7B822A2033 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A23E3C9F4DC48619630BAFD /* Octicons.ttf */; };
 		FD948EB8BF824C3CB717D44C /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 031E8E793DD44AF398EDF16F /* libRNSearchBar.a */; };
 /* End PBXBuildFile section */
 
@@ -572,7 +563,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -843,22 +834,13 @@
 				C71571A61E0C5E4E0097D6FD /* FontAwesome.ttf in Resources */,
 				C71571A41E0C5E4E0097D6FD /* Entypo.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				AEF8E4B1197546CA9D1E3C72 /* Entypo.ttf in Resources */,
 				96DC600905764A23B2CFB15E /* EvilIcons.ttf in Resources */,
 				C71571A71E0C5E4E0097D6FD /* Foundation.ttf in Resources */,
-				71580FBA92DC4884BB627011 /* FontAwesome.ttf in Resources */,
-				C7197A42CA6544A89F9E4C49 /* Foundation.ttf in Resources */,
-				C71571A51E0C5E4E0097D6FD /* EvilIcons.ttf in Resources */,
 				C71571AA1E0C5E4E0097D6FD /* Octicons.ttf in Resources */,
 				C71571AB1E0C5E4E0097D6FD /* SimpleLineIcons.ttf in Resources */,
 				C71571AC1E0C5E4E0097D6FD /* Zocial.ttf in Resources */,
 				C71571A81E0C5E4E0097D6FD /* Ionicons.ttf in Resources */,
 				C71571A91E0C5E4E0097D6FD /* MaterialIcons.ttf in Resources */,
-				AD710CB6D284478F93A196B4 /* Ionicons.ttf in Resources */,
-				D6B520BA320B4F82AAB52F97 /* MaterialIcons.ttf in Resources */,
-				F968FFC7FDBF4E7B822A2033 /* Octicons.ttf in Resources */,
-				D2AA839D7B584F02A2FB3C9D /* SimpleLineIcons.ttf in Resources */,
-				9A538104F3214FF1BC1F9DCE /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +921,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BridgesApp.app/BridgesApp";
 			};
@@ -958,6 +941,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BridgesApp.app/BridgesApp";
 			};
@@ -978,8 +962,9 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BridgesApp;
-				SDKROOT = iphoneos10.2;
+				SDKROOT = iphoneos;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -998,8 +983,9 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = BridgesApp;
-				SDKROOT = iphoneos10.2;
+				SDKROOT = iphoneos;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1017,15 +1003,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1065,8 +1055,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1074,6 +1066,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
