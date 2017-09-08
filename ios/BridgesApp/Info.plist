@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<<<<<<< HEAD
+<!-- <<<<<<< HEAD
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -68,7 +68,7 @@
 	<false/>
 </dict>
 </plist>
-=======
+======= -->
   <dict>
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
@@ -135,4 +135,4 @@
     <false/>
   </dict>
 </plist>
->>>>>>> 635403fafe807f7c150ff54a6eabca793e12f67b
+<!-- >>>>>>> 635403fafe807f7c150ff54a6eabca793e12f67b -->
